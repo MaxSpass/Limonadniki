@@ -1,0 +1,427 @@
+@import 'mixin/mixins', 'mixin/normalize', 'mixin/variables', 'mixin/sprite';
+@import '../css/bootstrap-grid.min', '../fonts/icons/css/fontello';
+
+.clearfix
+	clear: both
+	&:after
+		content: ''
+		display: table
+
+// [class^=col-]
+// 	box-sizing: border-box !important
+// 	background: red
+
+.row > div
+	box-sizing: border-box !important
+
+a, a:visited
+	outline: none !important
+
+.arrow1,.arrow2,.arrow3
+	position: relative
+	margin: 0  auto
+
+.arrow1
+	@include sprite-arrow1
+
+.arrow2
+	@include sprite-arrow2
+
+.arrow3
+	@include sprite-arrow3
+
+.img
+	max-width: 100%
+	height: auto
+
+body
+	position: relative
+	font-size: 100%
+	font-family: Arial, Helvetica, sans-serif
+	box-sizing: border-box
+	&.none-overflow
+		overflow: hidden
+
+main
+	&.blur
+		filter: blur(10px)
+
+.shadow
+	width: 100%
+	height: 100%
+	position: absolute
+	display: block
+	top: 0
+	left: 0
+	background-color: rgba($yellow-1,.35)
+	z-index: 1
+	display: none
+	&.show-modal
+		display: block
+
+.h2-lim
+	color: $brown
+	margin-top: 30px
+	text-transform: uppercase
+	text-align: center
+	@include fontsize(22)
+	font-family: $ff1
+
+@font-face
+	font-family: 'Karlson'
+	src:url(../fonts/karlson/karlson.ttf)
+
+.btn-style
+	background: $green
+	border: 2px solid transparent
+	color: #fff
+	display: block
+	text-transform: uppercase
+	text-align: center
+	text-decoration: none
+	transition: all .35s ease
+	&:hover
+		border-color: $green
+		background: #fff
+		color: $green
+
+#top
+	position: relative
+	height: 714px
+	background-image: url("../img/bg.jpg")
+	// background-image: url("../img/bg2.png")
+	background-size: cover
+	background-color: yellow
+	background-position: center
+	&:before
+		content: ''
+		position: absolute
+		display: block
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		background: rgba(0,0,0,.55)
+		z-index: 0
+	&:after
+		content: ''
+		position: absolute
+		bottom: 15%
+		right: 10%
+		@include sprite-stamp
+	header
+		.header-inner
+			// height: 88px
+			margin: 55px auto 30px auto
+			.header-right
+				float: right
+				padding: 15px 0
+
+#main-menu
+	// float: right
+	display: inline-block
+	ul
+		li
+			display: inline-block
+			margin-right: 30px
+			a
+				color: #fff
+				text-decoration: none
+				transition: all .35s ease
+				@include fontsize(20)
+				&:hover
+					color: $green
+
+.callback
+	display: inline-block
+	.btn-callback-text
+		box-sizing: border-box
+		background: transparent
+		border-radius: 25px
+		padding: 13px 20px
+		color: $yellow-1
+		border: 2px solid $yellow-1
+		text-transform: uppercase
+		transition: all .35s ease 
+		@include fontsize(15)
+		&:hover
+			background: $yellow-1
+			color: $maroon
+
+@keyframes basket_hover
+	from
+		background: $green
+	to
+		background: $yellow-1
+
+.basket-box
+	display: inline-block
+	margin-left: 30px
+	.basket
+		position: relative
+		display: block
+		cursor: pointer
+		color: #fff
+		padding: 10px
+		width: 53px
+		line-height: 53px
+		height: 53px
+		background: $green
+		border-radius: 50%
+		text-align: center
+		@include fontsize(30)
+		transition: all .35s ease
+		// &:hover
+		// 	.counter
+		// 		animation: basket_hover 1.5s infinite ease
+		.counter
+			position: absolute
+			display: none
+			animation: basket_hover 1.5s infinite ease
+			color: #000
+			background: $yellow-1
+			border-radius: 50%
+			width: 25px
+			line-height: 25px
+			height: 25px
+			top: -5px
+			right: -5px
+			font-size: 16px
+
+.front-preview
+	position: relative
+	max-width: 600px
+	margin: 0 auto
+	.h1-preview,.h2-preview
+		font-family: $ff1
+		text-align: center
+		color: #fff
+	.h1-preview
+		margin: 3vw auto 1vw
+		line-height: 60px
+		letter-spacing: 1px
+		@include fontsize(50)
+	.h2-preview
+		@include fontsize(21)
+		margin-bottom: 5vw
+	.btn-see-more
+		max-width: 210px
+		margin: 0 auto
+		border-radius: 50px
+		padding: 15px
+		
+
+#gallery
+	position: relative
+	background-color: $yellow-0
+	padding: 60px 0 230px 0
+	&:after
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		margin: 0 auto
+		content: ''
+		@include sprite-lemon_lg
+		@media screen and (max-width:767px)
+			@include sprite-lemon_xs
+	.drink-list
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		margin: 30px auto
+		li
+			display: inline-block
+			position: relative
+			color: $brown
+			padding: 0 20px
+			font-size: 17px
+			&:before
+				content: ''
+				background: $green
+				border-radius: 50%
+				display: block
+				width: 6px
+				height: 6px
+				position: absolute
+				float: left
+				left: 0px
+				top: 50%
+				margin-top: -3px
+
+#range
+	padding: 25px 0 65px 0
+	background-color: $chosen
+	span.line
+		position: relative
+		display: block
+		margin-top: 30px
+		background-color: #e0cfc0
+		height: 1px
+		&.with-arrow
+			&:before, &:after
+				position: absolute
+				top: -10px
+				content: ''
+				margin: 0 auto
+				width: 30px
+				height: 15px
+				border-bottom: 1px solid #e0cfc0
+				background: $chosen
+			&:before
+				left: -22px
+				right: 0
+				transform: rotate(20deg)
+			&:after
+				left: 0
+				right: -22px
+				transform: rotate(-20deg)
+	.items
+		// padding: 50px 0 30px
+		padding-top: 50px
+		.item
+			margin: 0 auto 80px auto
+			display: table
+			&:hover
+				.item-desc
+					opacity: 1
+			.item-box
+				position: relative
+				margin-bottom: 30px
+			.h3-item
+				color: $maroon
+				text-align: center
+				font-size: 26px
+				margin-bottom: 20px
+			.item-desc
+				opacity: 0
+				position: absolute
+				top: 0
+				height: 100%
+				width: 100%
+				background: rgba($green,.8)
+				display: flex
+				flex-flow: column wrap
+				justify-content: center
+				padding-left: 90px
+				box-sizing: border-box
+				transition: all .35s ease
+				// align-items: center
+				li
+					position: relative
+					line-height: 27px
+					color: #fff
+					&:before
+						content: ''
+						width: 6px
+						height: 6px
+						position: absolute
+						top: 50%
+						left: -15px
+						margin-top: -3px
+						border-radius: 50%
+						background: $yellow-1
+			.item-total
+				.price
+					position: relative
+					color: $brown
+					float: left
+					font-weight: bold
+					@include fontsize(38)
+					&:first-letter
+						margin-right: 10px
+					&:after
+						content: '\00a0грн'
+						font-size: 18px
+						vertical-align: top
+				.btn-buy-item
+					float: right
+					width: 150px
+					max-width: 150px
+					box-sizing: border-box
+					padding: 10px 0
+					border-radius: 25px
+					font-size: 15px
+					&.added
+						background: $brown
+						border-color: $brown
+
+
+.offer-box
+	position: absolute
+	top: 30px
+	left: 0
+	right: 0
+	display: none
+	max-width: 800px
+	// height: 100%
+	margin: 0 auto
+	background: #fff
+	padding: 0 30px 30px 30px
+	opacity: 0
+	z-index: 3
+	&.show
+		display: block
+		opacity: 1
+	.offer-inner
+		z-index: 4
+		.offer-item
+			display: flex
+			flex-flow: row wrap
+			justify-content: flex-start
+			padding: 20px 0 10px 0
+			border-bottom: 1px dashed $grey
+			align-items: center
+			@include fontsize(18)
+			.offer-img
+				width: 15%
+				float: left
+				img
+					max-width: 100px
+					width: 100%
+					height: auto
+			.offer-name
+				width: 41%
+				float: left
+				font-weight: bold
+				box-sizing: border-box
+				padding-left: 5%
+			.offer-quan, .offer-price
+				width: 22%
+				float: left
+				text-align: center
+			.offer-price
+				&:first-letter
+					margin-right: 5px
+				&:after
+					content: '\00a0грн.'
+			.number
+				span.minus, span.plus, input
+					display: inline-block
+					width: 33%
+					text-align: center
+				span.minus, span.plus
+					cursor: pointer
+					color: #fff
+					width: 25px
+					height: 25px
+					font-size: 19px
+					line-height: 24px
+					box-sizing: border-box
+					background: $green
+					border-radius: 50%
+
+	.offer-table
+		margin: 20px auto 0
+		padding: 15px 0
+		border-top: 1px solid $grey
+		border-bottom: 1px dashed $grey
+		color: $brown
+		@include fontsize(19)
+		.offer-td-name
+			width: 56%
+			float: left
+		.offer-td-quan, .offer-td-price
+			width: 22%
+			float: left
+			text-align: center
