@@ -1,5 +1,36 @@
 $(document).ready(function(){
 
+var sticky = function(){
+	var headerBox = $('.header-box')
+	var navPos, winPos, navHeight;
+
+	$('<div class="clone-nav-menu hidden-xs"></div>').insertBefore(headerBox)
+
+	function refreshVar() {
+	    navPos = headerBox.offset().top;
+	    navHeight = headerBox.outerHeight(true);
+	    headerHeight = headerBox.height();
+	}
+
+	refreshVar();
+	$(window).resize(refreshVar);
+
+	$(window).scroll(function() {
+	    winPos = $(window).scrollTop();
+	    $('.clone-nav-menu').css('height',headerBox.height())
+	    if (winPos > navPos && $(window).width() > 768) {
+	        headerBox.addClass('fixed');
+	        $('.clone-nav-menu').show();
+	    } else {
+	        headerBox.removeClass('fixed');
+	        $('.clone-nav-menu').hide();
+
+	    }
+	});
+
+}();
+
+
 	$('<div class="shadow"></div>').prependTo($('main'));
 
 	// $('<div class="offer-box"><div class="offer-inner clearfix"></div></div>').prependTo($('body'));
@@ -7,19 +38,24 @@ $(document).ready(function(){
 	function showModal() {
 		$('.shadow').fadeIn(100)
 		$('main').addClass('blur')
-		// $('body').addClass('none-overflow')	
+
+		$('body').addClass('none-overflow')
 	};
 
 	function hideModal() {
 		$('.shadow').fadeOut(100)
 		$('main').removeClass('blur')
 		$('.offer-box').removeClass('show')
+
+		$('body').removeClass('none-overflow')
 	}
 
 	$('#basket').click(function(){
 		showModal()
-		$('html, body').animate({ scrollTop: 0 }, 'fast');
+		// $('html, body').animate({ scrollTop: 0 }, 'fast');
 		$('.offer-box').addClass('show')
+		
+		// <p class="h2-lim">вы не выбрали ни одного товара</p>
 
 	   $('.minus').click(function () {
 	        var $input = $(this).parent().find('input');

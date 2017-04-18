@@ -17,10 +17,6 @@
 a, a:visited
 	outline: none !important
 
-.arrow1,.arrow2,.arrow3
-	position: relative
-	margin: 0  auto
-
 .arrow1
 	@include sprite-arrow1
 
@@ -29,6 +25,12 @@ a, a:visited
 
 .arrow3
 	@include sprite-arrow3
+
+.arrow1,.arrow2,.arrow3
+	position: relative
+	margin: 0  auto
+	@media screen and (max-width: 991px)
+		display: none 
 
 .img
 	max-width: 100%
@@ -71,19 +73,29 @@ main
 	font-family: 'Karlson'
 	src:url(../fonts/karlson/karlson.ttf)
 
-.btn-style
-	background: $green
-	border: 2px solid transparent
-	color: #fff
+.btn-style, .btn-style2
+	font-weight: bold
 	display: block
 	text-transform: uppercase
 	text-align: center
 	text-decoration: none
+	border: 2px solid transparent
 	transition: all .35s ease
+
+.btn-style
+	background: $green
+	color: #fff
 	&:hover
 		border-color: $green
 		background: #fff
 		color: $green
+
+.btn-style2
+	background: $yellow-1
+	border: 2px solid transparent
+	color: $brown
+	&:hover
+		border-color: $brown
 
 #top
 	position: relative
@@ -109,16 +121,33 @@ main
 		bottom: 15%
 		right: 10%
 		@include sprite-stamp
-	header
+
+header
+	.header-inner
+		margin: 55px auto 30px auto
+		transition: all .15s ease
+		.header-right
+			float: right
+			padding: 15px 0
+			transition: all .15s ease
+
+.header-box
+	&.fixed
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		background: rgba(0,0,0,.8)
+		z-index: 999
 		.header-inner
-			// height: 88px
-			margin: 55px auto 30px auto
+			margin: 0 auto
+			img.logo
+				max-width: 80%
 			.header-right
-				float: right
-				padding: 15px 0
+				padding: 5px 0
+				font-size: 95%
 
 #main-menu
-	// float: right
 	display: inline-block
 	ul
 		li
@@ -127,7 +156,7 @@ main
 			a
 				color: #fff
 				text-decoration: none
-				transition: all .35s ease
+				transition: all .2s ease
 				@include fontsize(20)
 				&:hover
 					color: $green
@@ -171,9 +200,6 @@ main
 		text-align: center
 		@include fontsize(30)
 		transition: all .35s ease
-		// &:hover
-		// 	.counter
-		// 		animation: basket_hover 1.5s infinite ease
 		.counter
 			position: absolute
 			display: none
@@ -223,8 +249,10 @@ main
 		margin: 0 auto
 		content: ''
 		@include sprite-lemon_lg
-		@media screen and (max-width:767px)
+		@media screen and (max-width:991px)
 			@include sprite-lemon_xs
+	@media screen and (max-width: 991px)
+		padding-bottom: 150px
 	.drink-list
 		display: flex
 		flex-flow: row wrap
@@ -277,7 +305,6 @@ main
 				right: -22px
 				transform: rotate(-20deg)
 	.items
-		// padding: 50px 0 30px
 		padding-top: 50px
 		.item
 			margin: 0 auto 80px auto
@@ -306,7 +333,6 @@ main
 				padding-left: 90px
 				box-sizing: border-box
 				transition: all .35s ease
-				// align-items: center
 				li
 					position: relative
 					line-height: 27px
@@ -346,22 +372,21 @@ main
 						background: $brown
 						border-color: $brown
 
-
 .offer-box
-	position: absolute
-	top: 30px
-	left: 0
-	right: 0
-	display: none
-	max-width: 800px
-	// height: 100%
-	margin: 0 auto
-	background: #fff
+	background-color: #fff
+	position: fixed
+	top: -100%
+	left: 25%
+	height: 80%
+	width: 50%
 	padding: 0 30px 30px 30px
-	opacity: 0
+	border-radius: 10px
+	overflow-y: scroll
 	z-index: 3
+	opacity: 0
+	transition: all .5s ease
 	&.show
-		display: block
+		top: 30px
 		opacity: 1
 	.offer-inner
 		z-index: 4
@@ -425,3 +450,305 @@ main
 			width: 22%
 			float: left
 			text-align: center
+
+#recipe
+	background: $green
+	padding: 60px 0
+	.h2-lim
+		color: #fff
+		margin: 25px auto
+	.download-text
+		text-align: center
+		color: #fff
+		@include fontsize(20)
+	.form-download-recipe
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		margin: 40px auto
+		input, .btn-recipe
+			width: 24%
+			line-height: 38px
+			border-radius: 50px
+		input
+			padding-left: 20px
+			box-sizing: border-box
+		.btn-recipe
+			background: $yellow-1
+			border: 2px solid transparent
+			color: $maroon
+			font-weight: bold
+			&:hover
+				border-color: $maroon
+		@media screen and (max-width: 650px)
+			flex-flow: column wrap
+			input, .btn-recipe
+				width: 100%
+				margin: 5px auto
+	@media screen and (max-width: 991px)
+		padding: 25px 0 0
+		.form-download-recipe
+			margin: 20px auto
+
+	.recipe-book
+		position: relative
+		img
+			position: absolute
+			top: -130px
+			left: 0
+
+#advantage
+	position: relative
+	padding: 175px 0 100px 0
+	background: $yellow-0
+	background-image: url("../img/bg_advantage.png")
+	background-position: 52% 125%
+	background-repeat: no-repeat
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		margin: 0 auto
+		@include sprite-lime_lg
+		@media screen and (max-width:991px)
+			@include sprite-lime_xs
+	.promo-box
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		margin-top: 55px
+		.promo-item
+			max-width: 335px
+			height: 260px
+			margin: 15px 0 10px
+			padding-top: 15px
+			.promo-item-box-img
+				display: flex
+				justify-content: center
+				align-items: center
+				border-radius: 50%
+				background-color: $yellow-1
+				width: 100px
+				height: 100px
+				margin: 40px auto 20px
+			.promo-ico_1
+				@include sprite-adv_ico1
+			.promo-ico_2
+				@include sprite-adv_ico2
+			.promo-ico_3
+				@include sprite-adv_ico3
+			.promo-ico_4
+				@include sprite-adv_ico4
+			.promo-desc
+				color: $brown
+				line-height: 28px
+				font-size: 18px
+				text-align: center
+	@media (min-width: 992px) and (max-width: 1199px)
+		background-size: 30%
+		background-position: center 105%
+		padding-bottom: 0
+	@media screen and (max-width: 991px)
+		padding-top: 60px
+		background-image: none
+		.promo-box 
+			margin-top: 0
+			.promo-item 
+				height: auto
+				padding-top: 0
+				.promo-desc
+					font-size: 16px
+	@media screen and (max-width: 767px)
+		.promo-column-left, .promo-column-right
+			margin: 0 auto
+			.promo-item
+				width: 100%
+
+.discount-box
+	position: relative
+	background-image: url("../img/bg_offer.jpg")
+	background-size: cover
+	background-repeat: no-repeat
+	padding: 40px 0 30px
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		width: 100%
+		height: 100%
+		background: rgba(#ffff6e,.8)
+	.h2-lim
+		position: relative
+		margin-bottom: 35px
+		margin-top: 0
+		@include fontsize(26)
+	.percent-20
+		margin-bottom: 20px
+	.btn-discount
+		position: relative
+		margin: 0 auto
+		padding: 15px 0
+		width: 100%
+		max-width: 300px
+		border-radius: 50px
+		margin-bottom: -55px
+		z-index: 2
+	@media screen and (max-width: 767px)
+		font-size: 80%
+
+.discount-inner
+	position: relative
+	display: flex
+	flex-flow: row wrap
+	justify-content: space-around
+	align-items: center
+	.percent-20
+		text-align: center
+		font-family: $ff1
+		.perc-value,.perc-text
+			color: $brown
+			display: block
+			line-height: 100px
+		.perc-value
+			@include fontsize(120)
+		.perc-text
+			@include fontsize(60)
+	.arrow-left
+		@include sprite-offer_ico1
+	.arrow-right
+		@include sprite-offer_ico2
+	@media screen and (max-width: 767px)
+		justify-content: center
+		.arrow-left, .arrow-right
+			display: none
+
+#work
+	position: relative
+	padding: 65px 0 215px
+	background: $yellow-0
+	&:after
+		content: ''
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 0
+		margin: 0 auto
+		@include sprite-grape_lg
+	.work-inner
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		margin: 55px auto 20px
+		.work-item
+			text-align: center
+			width: 20%
+			.work-item-img-box
+				display: flex
+				justify-content: center
+				align-items: center
+				width: 110px
+				height: 110px
+				border-radius: 50%
+				background: $green
+				margin: 0 auto 40px
+				.work-ico_1
+					@include sprite-work_ico1
+				.work-ico_2
+					@include sprite-work_ico2
+				.work-ico_3
+					@include sprite-work_ico3
+				.work-ico_4
+					@include sprite-work_ico4
+				.work-ico_5
+					@include sprite-work_ico5
+			.work-desc
+				color: $brown
+				font-size: 19px
+		@media screen and (max-width:767px)
+			.work-item
+				width: 50%
+				margin-bottom: 40px
+				.work-item-img-box
+					margin-bottom: 20px
+		@media screen and (max-width: 400px)
+			.work-item
+				width: 100%
+	@media screen and (max-width: 991px)
+		padding-bottom: 100px
+		&:after
+			@include sprite-grape_xs
+
+#gifts
+	display: flex
+	flex-direction: row
+	justify-content: center
+	align-items: stretch
+	.gift-column_left, .gift-column_right
+		width: 50%
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center
+	.gift-column_left
+		background-image: url("../img/bg_gift1.jpg")
+	.gift-column_right
+		position: relative
+		background-image: url("../img/bg_gift2.jpg")
+		padding: 140px 0 140px
+		&:after
+			content: ''
+			position: absolute
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			right: 0
+			background: rgba(#81b647,.8)
+		.gift-content
+			max-width: 600px
+			padding: 0 70px
+			box-sizing: border-box
+			text-align: center
+			i,.gift-text,.gift-desc
+				color: #fff
+				z-index: 2
+				position: relative
+			.gift-text
+				margin-top: 30px
+				text-transform: uppercase
+				line-height: 58px
+				@include fontsize(50)
+				font-family: $ff1
+			.gift-desc
+				margin-top: 50px
+				font-size: 21px
+				line-height: 26px
+				b
+					margin: 35px 0
+					display: block
+			.btn-gift
+				width: 100%
+				max-width: 250px
+				margin: 0 auto
+				padding: 15px 0
+				position: relative
+				z-index: 2
+				border-radius: 50px
+				font-weight: bold
+	@media screen and (max-width: 991px)
+		.gift-column_right
+			padding: 60px 0 60px
+			font-size: 80%
+	@media screen and (max-width: 767px)
+		.gift-column_right
+			width: 100%
+			.gift-content
+				max-width: 100%
+				padding: 0 20px
+
+.test
+	background: $maroon
+	height: 30px
