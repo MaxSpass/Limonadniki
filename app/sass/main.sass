@@ -1,5 +1,7 @@
 @import 'mixin/mixins', 'mixin/normalize', 'mixin/variables', 'mixin/sprite';
 @import '../css/bootstrap-grid.min', '../fonts/icons/css/fontello', '../css/owl.carousel', '../css/owl.theme';
+// @import '';
+
 
 .clearfix
 	clear: both
@@ -41,6 +43,7 @@ body
 	font-size: 100%
 	font-family: Arial, Helvetica, sans-serif
 	box-sizing: border-box
+	background-color: $chosen
 	&.none-overflow
 		overflow: hidden
 
@@ -749,6 +752,7 @@ header
 				max-width: 100%
 				padding: 0 20px
 
+
 #ukraine
 	position: relative
 	background-color: rgba(#ffffcb,.95)
@@ -795,27 +799,41 @@ header
 				height: 140px
 
 
-.carousel-sub-center
-	display: table
 
 #feedback
+	background-color: $chosen
+	padding: 90px 0
 	.feedbk-center
 		// margin: 0 auto
 		// display: table
 	.feedbk-box
-		left: 0
-		right: 0
-		margin: auto
-	.feedbk-carousel-box
-		margin: 0 auto
-		.owl-wrapper
-			// display: table !important
-			// margin: 0 auto
+		.owl-item
+			margin: 0 25px
 
-		// display: flex
-		// flex-flow: row wrap
-		// justify-content: space-around
-		// .owl-wrapper
-		// 	display: flex
-		// 	flex-flow: row wrap
-		// 	justify-content: space-around
+.feedbk-carousel-box
+	margin-top: 40px
+
+.feedbk-item
+	box-sizing: border-box
+	color: $brown
+	text-align: center
+	.feedbk-img-box
+		margin-bottom: 30px
+	.feedbk-name
+		text-transform: uppercase
+		font-weight: bold
+		font-size: 21px
+		margin-bottom: 20px
+	.feedbk-desc
+		position: relative
+		padding: 10px 5px
+		min-height: 190px
+		font-size: 17px
+		&:before
+			content: ''
+			position: absolute
+			bottom: 0
+			left: 0
+			right: 0
+			margin: 0 auto
+			@include sprite-dd

@@ -1087,7 +1087,8 @@ body {
   font-size: 100%;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+          box-sizing: border-box;
+  background-color: #fff4e5; }
   body.none-overflow {
     overflow: hidden; }
 
@@ -2121,13 +2122,42 @@ header .header-inner {
       #ukraine .choisen-box .coisen-item {
         height: 140px; } }
 
-.carousel-sub-center {
-  display: table; }
+#feedback {
+  background-color: #fff4e5;
+  padding: 90px 0; }
+  #feedback .feedbk-box .owl-item {
+    margin: 0 25px; }
 
-#feedback .feedbk-box {
-  left: 0;
-  right: 0;
-  margin: auto; }
+.feedbk-carousel-box {
+  margin-top: 40px; }
 
-#feedback .feedbk-carousel-box {
-  margin: 0 auto; }
+.feedbk-item {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #633c2b;
+  text-align: center; }
+  .feedbk-item .feedbk-img-box {
+    margin-bottom: 30px; }
+  .feedbk-item .feedbk-name {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 21px;
+    margin-bottom: 20px; }
+  .feedbk-item .feedbk-desc {
+    position: relative;
+    padding: 10px 5px;
+    min-height: 190px;
+    font-size: 17px; }
+    .feedbk-item .feedbk-desc:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      background-image: url(../img/sprite.png);
+      background-repeat: no-repeat;
+      display: block;
+      width: 25px;
+      height: 20px;
+      background-position: -622px -5px; }

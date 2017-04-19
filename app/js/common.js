@@ -35,6 +35,19 @@ $('.choisen-box, .feedbk-box').owlCarousel({
 	autoPlay: true
 })
 
+$('#gallery-list').unitegallery();
+
+// $('#gallery-list2').unitegallery();
+
+// $('.gallery-carousel').owlCarousel({
+// 	items: 1,
+// 	navigation: true
+// })
+
+// $('#gallery-list').owlCarousel();
+
+// $('.choisen-box, .feedbk-box').owlCarousel()
+
 // $('.feedbk-carousel-box .owl-item').wrapAll('<div class="carousel-sub-center" />')
 
 	$('<div class="shadow"></div>').prependTo($('main'));
