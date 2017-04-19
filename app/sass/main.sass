@@ -1,5 +1,5 @@
 @import 'mixin/mixins', 'mixin/normalize', 'mixin/variables', 'mixin/sprite';
-@import '../css/bootstrap-grid.min', '../fonts/icons/css/fontello';
+@import '../css/bootstrap-grid.min', '../fonts/icons/css/fontello', '../css/owl.carousel', '../css/owl.theme';
 
 .clearfix
 	clear: both
@@ -749,6 +749,73 @@ header
 				max-width: 100%
 				padding: 0 20px
 
-.test
-	background: $maroon
-	height: 30px
+#ukraine
+	position: relative
+	background-color: rgba(#ffffcb,.95)
+	background-image: url("../img/bg_choise.png")
+	background-repeat: no-repeat
+	background-position: center
+	background-attachment: contain
+	padding: 70px 0
+	min-height: 420px
+	.choisen-box
+		.coisen-item
+			display: flex
+			align-items: center
+			height: 200px
+			&:before
+				content: ''
+				margin: auto
+		.coisen-item.nemiroff
+			&:before
+				@include sprite-chosen_ico1
+		.coisen-item.radisson
+			&:before
+				@include sprite-chosen_ico2
+		.coisen-item.oneplusone
+			&:before
+				@include sprite-chosen_ico3
+		.coisen-item.mercato
+			&:before
+				@include sprite-chosen_ico4
+		.coisen-item.gulliver
+			&:before
+				@include sprite-chosen_ico5
+	.ukraine-tezis
+		text-align: center
+		margin: 30px auto
+		color: $brown
+		font-weight: bold
+		font-size: 18px
+	@media screen and (max-width: 991px)
+		min-height: 100%
+		padding: 35px 0
+		.choisen-box
+			.coisen-item
+				height: 140px
+
+
+.carousel-sub-center
+	display: table
+
+#feedback
+	.feedbk-center
+		// margin: 0 auto
+		// display: table
+	.feedbk-box
+		left: 0
+		right: 0
+		margin: auto
+	.feedbk-carousel-box
+		margin: 0 auto
+		.owl-wrapper
+			// display: table !important
+			// margin: 0 auto
+
+		// display: flex
+		// flex-flow: row wrap
+		// justify-content: space-around
+		// .owl-wrapper
+		// 	display: flex
+		// 	flex-flow: row wrap
+		// 	justify-content: space-around

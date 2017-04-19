@@ -31,6 +31,12 @@ var sticky = function(){
 }();
 
 
+$('.choisen-box, .feedbk-box').owlCarousel({
+	autoPlay: true
+})
+
+// $('.feedbk-carousel-box .owl-item').wrapAll('<div class="carousel-sub-center" />')
+
 	$('<div class="shadow"></div>').prependTo($('main'));
 
 	// $('<div class="offer-box"><div class="offer-inner clearfix"></div></div>').prependTo($('body'));
@@ -49,6 +55,8 @@ var sticky = function(){
 
 		$('body').removeClass('none-overflow')
 	}
+
+
 
 	$('#basket').click(function(){
 		showModal()
@@ -106,3 +114,5 @@ var sticky = function(){
 
 
 })
+
+
