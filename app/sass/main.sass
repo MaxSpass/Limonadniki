@@ -1,7 +1,7 @@
-@import 'mixin/mixins', 'mixin/normalize', 'mixin/variables', 'mixin/sprite';
-@import '../css/bootstrap-grid.min', '../fonts/icons/css/fontello', '../css/owl.carousel', '../css/owl.theme';
-// @import '';
-
+@import 'mixin/mixins', 'mixin/variables', 'mixin/sprite', 'mixin/normalize'
+@import '../libs/bootstrap-grid/css/bootstrap-grid'
+@import '../css/font'
+@import '../fonts/icons/css/fontello'
 
 .clearfix
 	clear: both
@@ -16,7 +16,8 @@
 .row > div
 	box-sizing: border-box !important
 
-a, a:visited
+a, a:visited, button
+	cursor: pointer
 	outline: none !important
 
 .arrow1
@@ -41,9 +42,9 @@ a, a:visited
 body
 	position: relative
 	font-size: 100%
-	font-family: Arial, Helvetica, sans-serif
 	box-sizing: border-box
 	background-color: $chosen
+	font-family: $ff-os-regular
 	&.none-overflow
 		overflow: hidden
 
@@ -217,6 +218,12 @@ header
 			right: -5px
 			font-size: 16px
 
+.owl-carousel .owl-item img
+	width: 100% !important
+	max-width: 300px !important
+	display: block 
+	margin: 0 auto !important
+
 .front-preview
 	position: relative
 	max-width: 600px
@@ -225,11 +232,15 @@ header
 		font-family: $ff1
 		text-align: center
 		color: #fff
+		word-break: normal
 	.h1-preview
 		margin: 3vw auto 1vw
 		line-height: 60px
 		letter-spacing: 1px
 		@include fontsize(50)
+		// @include fontsize(20)
+		@media screen and (max-width: 767px)
+			font-size: 80%
 	.h2-preview
 		@include fontsize(21)
 		margin-bottom: 5vw
@@ -760,7 +771,7 @@ header
 	background-repeat: no-repeat
 	background-position: center
 	background-attachment: contain
-	padding: 70px 0
+	padding: 60px 0 10px
 	min-height: 420px
 	.choisen-box
 		.coisen-item
@@ -802,16 +813,13 @@ header
 
 #feedback
 	background-color: $chosen
-	padding: 90px 0
-	.feedbk-center
-		// margin: 0 auto
-		// display: table
-	.feedbk-box
-		.owl-item
-			margin: 0 25px
+	padding: 60px 0
 
 .feedbk-carousel-box
 	margin-top: 40px
+
+.feedbk-inner
+	padding: 0 15px
 
 .feedbk-item
 	box-sizing: border-box
@@ -819,6 +827,8 @@ header
 	text-align: center
 	.feedbk-img-box
 		margin-bottom: 30px
+		img
+			max-width: 240px !important
 	.feedbk-name
 		text-transform: uppercase
 		font-weight: bold
@@ -827,8 +837,8 @@ header
 	.feedbk-desc
 		position: relative
 		padding: 10px 5px
-		min-height: 190px
-		font-size: 17px
+		min-height: 220px
+		font-size: 16px
 		&:before
 			content: ''
 			position: absolute
@@ -837,3 +847,145 @@ header
 			right: 0
 			margin: 0 auto
 			@include sprite-dd
+
+.footer-box-menu
+	background: $yellow-0
+	padding: 50px 0 40px
+	.footer-inner-menu
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		align-items: center
+		@media screen and (max-width:991px)
+			flex-direction: column
+		.col-right
+			.menu-footer,.btn-callback-text-footer
+				display: inline-block
+			.menu-footer
+				li
+					display: inline-block
+					margin-right: 40px
+					a
+						color: $maroon
+						text-decoration: none
+						font-size: 18px
+						font-family: $ff-os-sbold
+						&:hover
+							opacity: .7
+.btn-callback-text-footer
+	box-sizing: border-box
+	background: transparent
+	border-radius: 25px
+	padding: 13px 20px
+	color: $maroon
+	border: 2px solid $maroon
+	text-transform: uppercase
+	transition: all .35s ease 
+	@include fontsize(15)
+	&:hover
+		border-color: transparent
+		background: $maroon
+		color: $yellow-0
+
+.map
+	position: relative
+	.contact-info
+		color: #fff
+		padding: 10px
+		position: absolute
+		box-sizing: border-box
+		text-align: center
+		top: 0
+		left: 19%
+		width: 100%
+		height: 430px
+		max-width: 365px
+		background: $green
+		z-index: 3
+		@media (min-width: 767px) and (max-width: 991px)
+			left: 5%
+		@media screen and (max-width: 767px)
+			position: relative
+			height: auto
+			margin: 0 auto
+			max-width: 100%
+			left: 0
+			padding-bottom: 20px
+		.p-contact
+			padding: 35px 0 25px
+			font-size: 30px
+			border-bottom: 1px solid #fff
+			display: inline-block
+			font-family: $ff-os-bold
+		.phones
+			margin: 30px 0
+			p
+				font-size: 20px
+				line-height: 44px
+				a
+					color: #fff
+					text-decoration: none
+					&:hover
+						text-decoration: underline
+		.social
+			li
+				display: inline-block
+				margin: 0 15px
+				a
+					text-decoration: none
+					&:before
+						color: #fff
+						border-radius: 50%
+						border: 1px solid #fff
+						width: 35px
+						line-height: 35px
+						height: 35px
+						font-size: 20px
+						transition: all .2s ease-in
+					&:hover:before
+						border-color: transparent
+						background: #fff
+						color: $green
+
+.bottom
+	display: flex
+	flex-direction: row
+	justify-content: center
+	align-items: stretch
+	background: $maroon
+	.bottom-column_left, .bottom-column_right
+		width: 50%
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center
+	.bottom-column_left
+		background-image: url("../img/bg_footer1.png")
+	.bottom-column_right
+		position: relative
+		padding: 20px
+		.bottom-content
+			max-width: 700px
+			padding: 15px 30px
+			box-sizing: border-box
+			text-align: center
+			i,.bottom-text,.bottom-desc
+				color: #fff
+				z-index: 2
+				position: relative
+			.bottom-prev
+				color: $yellow-1
+				text-transform: uppercase
+				font-family: $ff-os-bold
+				font-size: 20px
+			.bottom-text
+				margin-top: 30px
+				line-height: 27px
+				font-size: 20px
+				font-family: $ff-os-light
+				margin-bottom: 30px
+	@media screen and (max-width: 991px)
+		.bottom-column_right
+			width: 100%
+			.bottom-content
+				max-width: 100%
+				padding: 0 20px
