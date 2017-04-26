@@ -111,9 +111,9 @@ $('#gallery-list').unitegallery();
 
 	});
 
-	$('.shadow').click(function(){
-		hideModal()
-	})
+	// $('.shadow').click(function(){
+	// 	hideModal()
+	// })
 
 	$('.btn-buy-item').click(function(){
 		if ($(this).hasClass('added') === false) {
@@ -141,8 +141,10 @@ $('#gallery-list').unitegallery();
 
 	})
 
-
+showModal()
 })
+
+
 
 /*
 ymaps.ready(init); // карта соберется после загрузки скрипта и элементов
