@@ -1,4 +1,15 @@
 $(document).ready(function(){
+	modal = $('#modal');
+	page = $('html, body');
+	
+	$('a[href^="#"]').click(function() {
+		var fixedHeadeHeight = $('.header-box').height();
+	    page.animate({
+	        scrollTop: jQuery($.attr(this, 'href')).offset().top - fixedHeadeHeight/2.25
+	    }, 1000);
+	    return false;
+	});
+
 
 var sticky = function(){
 	var headerBox = $('.header-box')
@@ -85,7 +96,12 @@ $('#gallery-list').unitegallery();
 		$('body').removeClass('none-overflow')
 	}
 
+	$('.close-modal').click(function(){
+		$('#modal').fadeOut(200)
+		hideModal()
+	})
 
+	$("input[type='tel']").mask("+38 (099) 999-99-99");
 
 	$('#basket').click(function(){
 		showModal()
@@ -111,9 +127,27 @@ $('#gallery-list').unitegallery();
 
 	});
 
-	// $('.shadow').click(function(){
-	// 	hideModal()
-	// })
+$('.btn-pre-order, .btn-callback').click(function(){
+	var thisValue = $(this).val();
+	var btnArray = modal.find($('.btn-array')).val(thisValue).text(thisValue);
+	showModal();
+	modal.find('.modal-name').text(thisValue);
+
+	if ($(this).hasClass('btn-pre-order')) {
+		modal.removeClass('callback').addClass('pre-order').fadeIn();
+		console.log(btnArray.val());
+	} else if ($(this).hasClass('btn-callback')) {
+		modal.removeClass('pre-order').addClass('callback').fadeIn();
+		console.log(btnArray.val());
+	}
+})
+
+
+
+	$('.shadow').click(function(){
+		hideModal()
+		modal.fadeOut(300)
+	})
 
 	$('.btn-buy-item').click(function(){
 		if ($(this).hasClass('added') === false) {
@@ -141,7 +175,7 @@ $('#gallery-list').unitegallery();
 
 	})
 
-showModal()
+// showModal()
 })
 
 

@@ -22,7 +22,7 @@
    <header class="container">
       <div class="header-inner row">
          <div class="col-md-3">
-            <a href="/">
+            <a href="#top">
                <img class="logo img" src="img/logo.png" title="Tarlini Shop" alt="Tarlini Shop">
             </a>
          </div>
@@ -30,14 +30,14 @@
             <div class="header-right">
                <nav id="main-menu">
                   <ul>
-                     <li><a href="">Лимонадники</a></li>
-                     <li><a href="">Отзывы</a></li>
-                     <li><a href="">Контакты</a></li>
+                     <li><a href="#range">Лимонадники</a></li>
+                     <li><a href="#feedback">Отзывы</a></li>
+                     <li><a href="#contacts">Контакты</a></li>
                   </ul>
                </nav>
                <div class="callback">
                   <i class="icon-phone hidden-sm hidden-md hidden-lg"></i>
-                  <button class="btn-callback-text hidden-xs" value="перезвоните мне">перезвоните мне</button>
+                  <button class="btn-callback-text hidden-xs btn-callback" value="перезвоните мне">перезвоните мне</button>
                </div>
                <div class="basket-box">
                   <i id="basket" class="basket icon-basket">
@@ -282,7 +282,7 @@
          <div class="arrow-right"></div>
       </div>
    </div>
-   <button class="btn-style btn-discount">ОФОРМИТЬ</button>
+   <button class="btn-style btn-discount btn-pre-order" value="оформить предзаказ">ОФОРМИТЬ</button>
 </div>
 
 <div id="work">
@@ -331,7 +331,7 @@
          <i class="arrow1"></i>
          <p class="gift-text">для больших компаний</p>
          <p class="gift-desc">При покупке двух лимонадников вы получаете набор из двух банок с ручкой <br>(банки Mokko стоимостью 130 грн каждая)<br><b>В ПОДАРОК</b></p>
-         <button id="btn-gift" class="btn-gift btn-style2" value="получить набор">получить набор</button>
+         <button id="btn-gift" class="btn-gift btn-style2 btn-callback" value="получить набор">получить набор</button>
       </div>
    </div>
 </div>
@@ -347,7 +347,7 @@
          <div class="arrow-right"></div>
       </div>
    </div>
-   <button class="btn-style btn-discount">ОФОРМИТЬ</button>
+   <button class="btn-style btn-discount btn-pre-order" value="оформить предзаказ">ОФОРМИТЬ</button>
 </div> -->
 
 <div id="ukraine">
@@ -427,7 +427,7 @@
          <div class="arrow-right"></div>
       </div>
    </div>
-   <button class="btn-style btn-discount">ОФОРМИТЬ</button>
+   <button class="btn-style btn-discount btn-pre-order" value="оформить предзаказ">ОФОРМИТЬ</button>
 </div>
 
 <div class="footer-box-menu">
@@ -442,7 +442,7 @@
                <li><a href="">Отзывы</a></li>
                <li><a href="">Контакты</a></li>
             </ul>
-            <button class="btn-callback-text-footer" value="перезвоните мне, возле футера">ПЕРЕЗВОНИТЬ МНЕ</button>
+            <button class="btn-callback-text-footer btn-callback" value="перезвоните мне">ПЕРЕЗВОНИТЬ МНЕ</button>
          </div>
       </div>
    </div>
@@ -450,7 +450,7 @@
 
 <div class="map">
    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A799f03bde30e64bbdcbeb0702c7680a2ffcf98b9ef8ef34f22ba7c3f91c450cd&amp;width=100%25&amp;height=430&amp;lang=ru_UA&amp;scroll=true"></script>
-   <div class="contact-info">
+   <div id="contacts" class="contact-info">
       <div class="contact-text">
          <p class="p-contact">КОНТАКТЫ</p>
          <div class="phones">
@@ -498,30 +498,26 @@
    </div>
 </div>
 
-<div id="modal" class="pre-order">
+<div id="modal">
    <div class="modal-box">
-      <p>10Lorem ipsum dolor sit amet.</p>
-      <p>10Vitae iste modi quas temporibus.</p>
-      <p>10Soluta nam eligendi odit inventore!</p>
-      <p>10Itaque id, eos harum alias?</p>
-      <p>10Veritatis iusto enim nam rem?</p>
-      <p>10Accusamus dolorum ad, corporis aspernatur!</p>
-      <p>10Enim nulla, recusandae non excepturi.</p>
-      <p>10Exercitationem quasi earum accusamus dicta?</p>
-      <p>10In nam, accusantium officia eligendi!</p>
-      <p>10Ipsam, magnam corrupti sit earum!</p>
-      <ul>
-         <li>lorem3</li>
-         <li>lorem3</li>
-         <li>lorem3</li>
-         <li>lorem3</li>
-         <li>lorem3</li>
-         <li>lorem3</li>
-         <li>lorem3</li>
-         <li>lorem3</li>
-         <li>lorem3</li>
-         <li>lorem3</li>
-      </ul>
+      <div class="modal-inner">
+         <div class="modal-name">Оформить предзаказ</div>
+         <span class="close-modal"></span>
+      </div>
+      <div class="modal-content">
+         <form id="form-modal" class="form-modal">
+            <label class="label-name"><input name="name" type="text" pattern="^[А-Яа-яЁё\s]+$" placeholder="Ваше имя" required></label>
+            <label class="label-phone"><input name="phone" type="tel" placeholder="Ваш телефон" required></label>
+            <label class="label-email"><input name="email" type="email" pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' placeholder="Ваш email" required></label>
+            <button form="form-modal" class="btn-array btn-gift btn-style2" type="submit"></button>
+            <div class="anonimus">Мы сохраним Ваши контакты конфиденциально</div>
+         </form>
+      </div>
+      <div class="bottom-modal">
+         <i class="arrow2"></i>
+         <div class="red">Выгодное предложение:</div>
+         <p>При оформления предзаказа на лимонадник фирмы Kilner вы получаете <span class="red-bg">скидку в размере 20%,</span> срок доставки 2-3 недели. Успей приобрести к началу лета!</p>
+      </div>
    </div>
 </div>
 
@@ -532,6 +528,7 @@
       <script src="libs/owl-carousel/owl-carousel/owl.carousel.min.js"></script>
       <script src="libs/unitegallery/dist/js/unitegallery.min.js"></script>
       <script src="libs/unitegallery/dist/themes/tilesgrid/ug-theme-tilesgrid.js"></script>
+      <script src="libs/jquery.maskedinput/dist/jquery.maskedinput.min.js"></script>
       <script src="js/common.js"></script>
 </body>
 </html>
