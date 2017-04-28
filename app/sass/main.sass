@@ -144,11 +144,34 @@ header
 		z-index: 999
 		.header-inner
 			margin: 0 auto
-			img.logo
-				max-width: 80%
+			// img.logo
+			// 	max-width: 80%
 			.header-right
 				padding: 5px 0
 				font-size: 95%
+
+
+// .header-box, .header-box.fixed
+// 	@media screen and (max-width: 767px)
+// 		.header-inner
+// 			img.logo
+// 				max-width: 250px
+// 				margin: 0 auto
+// 				display: block
+// 			.header-right
+// 				padding: 0
+// 				display: flex
+// 				flex-flow: row wrap
+// 				justify-content: center
+// 				align-items: center
+// 				#main-menu
+// 					width: 100%
+// 					margin: 10px auto
+
+@media (min-width:768px) and (max-width:1199px)
+	.header-right
+		font-size: 90%
+
 
 #main-menu
 	display: inline-block
@@ -216,6 +239,127 @@ header
 			top: -5px
 			right: -5px
 			font-size: 16px
+
+
+@media screen and (max-width: 767px)
+	header .header-inner, .header-box.fixed .header-inner
+		margin: 3px auto
+	.header-right
+		display: flex
+		flex-flow: row wrap
+		justify-content: center
+		align-items: center
+	.header-inner
+		display: flex
+		flex-flow: row wrap
+		align-items: center
+		// .aligned
+		// 	align-self: flex-start
+		&.open
+			.btn-mobile
+				background: $maroon
+				span.spin
+					&:before
+						// background: #fff
+						transform: rotate(45deg)
+						top: 14px
+					&:after
+						// background: #fff
+						transform: rotate(-45deg)
+						bottom: 14px
+	#main-menu
+		position: fixed
+		background: $maroon
+		top: 30%
+		left: 0
+		right: 0
+		padding: 10px 0
+		display: none
+		z-index: 5
+		ul
+			display: flex
+			flex-direction: column
+			justify-content: space-around
+			height: 150px
+			li
+				line-height: 28px
+				display: block
+				text-align: center
+	.basket-box .basket .counter
+		width: 20px
+		line-height: 20px
+		height: 20px
+		top: -7px
+		right: -6px
+		font-size: 13px
+	.basket-box .basket, .icon-phone, .btn-mobile
+		cursor: pointer
+		background: $green
+		border-radius: 50%
+		box-sizing: border-box
+		margin-left: 10px
+		color: #fff
+		line-height: 40px
+		text-align: center
+		width: 40px
+		height: 40px
+		padding: 0
+		font-size: 23px
+	.basket-box
+		margin-left: 0
+	.btn-mobile
+		background: $green
+		position: relative
+		float: left
+		z-index: 3
+		span.spin
+			position: absolute
+			top: 50%
+			left: 0
+			right: 0
+			margin: -15px auto 0 auto
+			width: 30px
+			height: 30px
+			&:before,&:after
+				position: absolute
+				content: ''
+				background: #fff
+				display: block
+				width: 80%
+				height: 2px
+				margin: 0 auto
+				left: 0
+				right: 0
+				transition: all .2s ease
+			&:before
+				top: 7px
+			&:after
+				top: auto
+				bottom: 7px
+	#modal
+		&.pre-order .modal-box
+			max-height: 624px !important
+		&.callback .modal-box
+			max-height: 455px !important
+		.modal-box
+			transform: none
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			// padding: 5px
+			font-size: 64%
+			.form-modal input
+				width: 81%
+			.modal-inner .modal-name
+				line-height: 90px !important
+
+@media screen and (max-width:630px)
+	#main-menu
+		order: 3
+@media screen and (max-width: 360px)
+	.basket-box .basket, .icon-phone, .btn-mobile
+		margin-left: 5px
 
 .owl-carousel .owl-item img
 	width: 100% !important
@@ -387,6 +531,7 @@ header
 
 .offer-box
 	background-color: #fff
+	box-sizing: border-box
 	position: fixed
 	top: -100%
 	left: 25%
@@ -395,14 +540,22 @@ header
 	padding: 0 30px 30px 30px
 	border-radius: 10px
 	overflow-y: scroll
-	z-index: 3
+	z-index: -1
 	opacity: 0
 	transition: all .5s ease
 	&.show
-		top: 30px
+		top: 10%
+		z-index: 999
 		opacity: 1
+		.offer-inner
+			z-index: 4
+	@media screen and (max-width: 767px)
+		width: 100%
+		left: 0
+		right: 0
+		top: 10px
 	.offer-inner
-		z-index: 4
+		// z-index: 4
 		.offer-item
 			display: flex
 			flex-flow: row wrap
@@ -467,6 +620,8 @@ header
 #recipe
 	background: $green
 	padding: 60px 0
+	.download-recipe
+		display: none
 	.h2-lim
 		color: #fff
 		margin: 25px auto
@@ -990,7 +1145,7 @@ header
 				padding: 0 20px
 
 #modal
-	z-index: 999
+	z-index: 1000
 	display: none
 	&.callback .modal-box
 		max-height: 540px
@@ -1000,6 +1155,7 @@ header
 		max-height: 750px
 	.modal-box
 		background-color: $yellow-0
+		box-sizing: border-box
 		position: fixed
 		top: 50%
 		left: 50%
@@ -1010,13 +1166,7 @@ header
 		max-width: 650px
 		margin: 0 auto
 		overflow: auto
-		z-index: 1000
-		@media screen and (max-width:767px)
-			transform: none
-			top: 0
-			bottom: 0
-			left: 0
-			right: 0
+		z-index: 999
 		.modal-content
 			background: #fff
 		.modal-inner
@@ -1077,10 +1227,12 @@ header
 				height: 43px
 				margin-left: 60px
 				padding-left: 20px
+				font-size: 16px
 				z-index: 1000
 			button
 				max-width: 100%
 				margin: 30px auto
+				font-size: 16px
 		.anonimus
 			color: #6F6F6F
 			line-height: 25px
@@ -1110,6 +1262,7 @@ header
 				margin: 0 auto
 				color: $brown
 				font-family: $ff-os-sbold
+				font-size: 16px
 				.red-bg
 					color: #fff
 					background: $red
@@ -1122,3 +1275,6 @@ header
 		// 	top: 10px
 		// 	left: 0
 		// 	transform: none
+
+// .modal-box
+// 	top: 10px !important

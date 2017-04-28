@@ -21,12 +21,12 @@
 <div class="header-box">
    <header class="container">
       <div class="header-inner row">
-         <div class="col-md-3">
-            <a href="#top">
+         <div class="aligned col-xs-5 col-md-3">
+            <a href="/">
                <img class="logo img" src="img/logo.png" title="Tarlini Shop" alt="Tarlini Shop">
             </a>
          </div>
-         <div class="col-md-9">
+         <div class="col-xs-7 col-md-9">
             <div class="header-right">
                <nav id="main-menu">
                   <ul>
@@ -36,7 +36,10 @@
                   </ul>
                </nav>
                <div class="callback">
-                  <i class="icon-phone hidden-sm hidden-md hidden-lg"></i>
+                  <div class="btn-mobile">
+                     <span class="spin"></span>
+                  </div>
+                  <button class="icon-phone hidden-sm hidden-md hidden-lg btn-callback" value="перезвоните мне"></button>
                   <button class="btn-callback-text hidden-xs btn-callback" value="перезвоните мне">перезвоните мне</button>
                </div>
                <div class="basket-box">
@@ -223,6 +226,7 @@
                   <input name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Ваш email" required>
                   <button form="form-download-recipe" class="btn-recipe" type="submit" value="скачать рецепт">СКАЧАТЬ</button>
                </form>
+               <a href="img/recipe.pdf" class="download-recipe" download>скачать рецепт</a>
             </div>
          </div>
          <div class="hidden-xs hidden-sm col-md-4">
@@ -449,7 +453,7 @@
 </div>
 
 <div class="map">
-   <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A799f03bde30e64bbdcbeb0702c7680a2ffcf98b9ef8ef34f22ba7c3f91c450cd&amp;width=100%25&amp;height=430&amp;lang=ru_UA&amp;scroll=true"></script>
+   <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A799f03bde30e64bbdcbeb0702c7680a2ffcf98b9ef8ef34f22ba7c3f91c450cd&amp;width=100%25&amp;height=430&amp;lang=ru_UA&amp;scroll=false"></script>
    <div id="contacts" class="contact-info">
       <div class="contact-text">
          <p class="p-contact">КОНТАКТЫ</p>
@@ -501,7 +505,7 @@
 <div id="modal">
    <div class="modal-box">
       <div class="modal-inner">
-         <div class="modal-name">Оформить предзаказ</div>
+         <div class="modal-name"></div>
          <span class="close-modal"></span>
       </div>
       <div class="modal-content">
