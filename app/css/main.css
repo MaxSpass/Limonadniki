@@ -1146,6 +1146,12 @@ main.blur {
     width: 169px;
     height: 146px;
     background-position: -826px -357px; }
+  @media screen and (max-width: 767px) {
+    #top {
+      height: 500px; }
+      #top:after {
+        bottom: 5%;
+        right: 5%; } }
 
 header .header-inner {
   margin: 55px auto 30px auto;
