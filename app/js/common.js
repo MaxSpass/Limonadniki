@@ -226,7 +226,7 @@ $(window).on('load resize',function(){
 		winH = $(this).height(),
 		headeHeight = $('.header-box').height(),
 		headeHeightt = $('.header-box').offset().top,
-		need = offerOffsetTop - headeHeightt + headeHeight,
+		// need = offerOffsetTop - headeHeightt + headeHeight,
 		modalHeight = $('.modal-box').height(),
 		modalOffsetTop = $('.modal-box').offset().top;
 

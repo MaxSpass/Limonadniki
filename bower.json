@@ -20,7 +20,6 @@
     "normalize.sass": "^3.0.0",
     "bootstrap-grid": "^3.3.6-beta.1",
     "owl-carousel": "^1.3.2",
-    "owl.carousel": "owl-carousel2#^2.2.1",
     "unitegallery": "^1.7.40",
     "jquery.maskedinput": "^1.4.1"
   }
