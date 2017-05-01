@@ -23,8 +23,8 @@
    <header class="container">
       <div class="header-inner row">
          <div class="aligned col-xs-5 col-md-3">
-            <a href="/">
-               <img class="logo img" src="img/logo.png" title="Tarlini Shop" alt="Tarlini Shop">
+            <a class="test" href="/">
+               <!-- <img class="img" src="img/logo.png" title="Tarlini Shop" alt="Tarlini Shop"> -->
             </a>
          </div>
          <div class="col-xs-7 col-md-9">
@@ -492,6 +492,7 @@
 
 </main>
 <div class="offer-box">
+   <span class="close-offer-box">&times;</span>
    <p class="h2-lim">товары уже в корзине</p>
    <div class="offer-table clearfix">
       <div class="offer-td-name">Наименование</div>
@@ -506,7 +507,7 @@
 <div id="modal">
    <div class="modal-box">
       <div class="modal-inner">
-         <div class="modal-name"></div>
+         <div class="modal-name"><p></p></div>
          <span class="close-modal"></span>
       </div>
       <div class="modal-content">
@@ -527,9 +528,16 @@
 </div>
 
 
+<div id="show_thx_video">
+   <div class="show-video-inner">
+      <div class="close-video"></div> 
+   </div>
+</div>
+
 
 
       <script src="js/jquery-3.1.1.min.js"></script>
+      <script src="libs/youtubeBackground/src/jquery.youtubebackground.js"></script>
       <script src="libs/owl-carousel/owl-carousel/owl.carousel.min.js"></script>
       <script src="libs/unitegallery/dist/js/unitegallery.min.js"></script>
       <script src="libs/unitegallery/dist/themes/tilesgrid/ug-theme-tilesgrid.js"></script>

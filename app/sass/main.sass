@@ -34,7 +34,8 @@ a, a:visited, button
 	margin: 0  auto
 	@media screen and (max-width: 991px)
 		display: none 
-
+.logo
+	z-index: 10
 .img
 	max-width: 100%
 	height: auto
@@ -58,7 +59,7 @@ main
 	position: absolute
 	top: 0
 	left: 0
-	background: linear-gradient(to right, rgba($green,.75), rgba($yellow-1,.65))
+	background: linear-gradient(to right, rgba($green,.90), rgba($yellow-1,.85))
 	z-index: 1
 	display: none
 	&.show-modal
@@ -84,6 +85,7 @@ main
 	text-decoration: none
 	border: 2px solid transparent
 	transition: all .35s ease
+	font-size: 16px
 
 .btn-style
 	background: $green
@@ -100,14 +102,37 @@ main
 	&:hover
 		border-color: $brown
 
+.test
+	display: block
+	width: 242px
+	height: 88px
+	background: url('../img/logo.png') center no-repeat
+	background-size: contain
+	z-index: 999
+	@media screen and (max-width:767px)
+		width: calc(242px/2)
+		height: calc(88px/2)
+
+.ytplayer-container
+	padding-bottom: 56.25%
+	padding-top: 25px
+	height: 0
+	iframe
+		position: absolute
+		left: 0 !important
+		width: 100% !important
+		height: 100% !important
+		z-index: -1
 #top
 	position: relative
 	height: 714px
-	background-image: url("../img/bg.jpg")
-	// background-image: url("../img/bg2.png")
-	background-size: cover
-	background-color: yellow
-	background-position: center
+	background-size: contain
+	background: transparent
+	overflow: hidden
+	@media screen and (max-width:767px)
+		background-size: cover
+		background: url("../img/bg.jpg") center no-repeat
+		// background-image: url("../img/bg2.png")
 	&:before
 		content: ''
 		position: absolute
@@ -153,7 +178,7 @@ header
 			// 	max-width: 80%
 			.header-right
 				padding: 5px 0
-				font-size: 95%
+				font-size: 85%
 
 
 // .header-box, .header-box.fixed
@@ -172,6 +197,34 @@ header
 // 				#main-menu
 // 					width: 100%
 // 					margin: 10px auto
+
+#show_thx_video
+	position: fixed
+	display: none
+	top: 10%
+	left: 0
+	right: 0
+	margin: 0 auto
+	background: rgba(red,.5)
+	width: 100%
+	max-width: 600px
+	z-index: 999
+	.ytplayer-container
+		top: 0 !important
+	.show-video-inner
+		position: relative
+		.close-video
+			position: absolute
+			top: 0
+			right: 5px
+			color: #fff
+			cursor: pointer
+			line-height: 25px
+			text-align: center
+			font-size: 22px
+			vertical-align: middle
+			@include sprite-modal_close
+			z-index: 999
 
 @media (min-width:768px) and (max-width:1199px)
 	.header-right
@@ -387,22 +440,25 @@ header
 		letter-spacing: 1px
 		@include fontsize(50)
 		// @include fontsize(20)
-		@media screen and (max-width: 767px)
-			font-size: 80%
 	.h2-preview
-		@include fontsize(21)
+		@include fontsize(25)
 		margin-bottom: 5vw
 	.btn-see-more
 		max-width: 210px
 		margin: 0 auto
 		border-radius: 50px
 		padding: 15px
+	@media screen and (max-width: 767px)
+		font-size: 60%
+		line-height: 30px
 		
 
 #gallery
 	position: relative
 	background-color: $yellow-0
 	padding: 60px 0 230px 0
+	@media screen and (max-width: 767px)
+		padding-top: 0
 	&:after
 		position: absolute
 		bottom: 0
@@ -438,10 +494,16 @@ header
 				left: 0px
 				top: 50%
 				margin-top: -3px
+		@media screen and (max-width: 767px)
+			display: block
+			li
+				font-size: 15px
 
 #range
 	padding: 25px 0 65px 0
 	background-color: $chosen
+	@media screen and (max-width: 767px)
+		padding-bottom: 15px
 	span.line
 		position: relative
 		display: block
@@ -471,6 +533,8 @@ header
 		.item
 			margin: 0 auto 80px auto
 			display: table
+			@media screen and (max-width: 767px)
+				margin-bottom: 35px
 			&:hover
 				.item-desc
 					opacity: 1
@@ -535,6 +599,7 @@ header
 						border-color: $brown
 
 .offer-box
+	position: relative
 	background-color: #fff
 	box-sizing: border-box
 	position: fixed
@@ -548,6 +613,20 @@ header
 	z-index: -1
 	opacity: 0
 	transition: all .5s ease
+	.close-offer-box
+		position: absolute
+		display: block
+		cursor: pointer
+		top: 5px
+		right: 5px
+		background: lighten(maroon,15%)
+		width: 30px
+		height: 30px
+		line-height: 30px
+		color: #fff
+		border-radius: 50px
+		text-align: center
+		font-size: 30px
 	&.show
 		top: 10%
 		z-index: 999
@@ -570,12 +649,25 @@ header
 			align-items: center
 			@include fontsize(18)
 			.offer-img
+				position: relative
 				width: 15%
 				float: left
 				img
 					max-width: 100px
 					width: 100%
 					height: auto
+				.remove-item
+					position: absolute
+					cursor: pointer
+					top: -10px
+					right: -10px
+					background: lighten(maroon,15%)
+					width: 20px
+					height: 20px
+					line-height: 20px
+					color: #fff
+					border-radius: 50px
+					text-align: center
 			.offer-name
 				width: 41%
 				float: left
@@ -592,11 +684,11 @@ header
 				&:after
 					content: '\00a0грн.'
 			.number
-				span.minus, span.plus, input
+				button.minus, button.plus, input
 					display: inline-block
 					width: 33%
 					text-align: center
-				span.minus, span.plus
+				button.minus, button.plus
 					cursor: pointer
 					color: #fff
 					width: 25px
@@ -677,6 +769,8 @@ header
 	background-image: url("../img/bg_advantage.png")
 	background-position: 52% 125%
 	background-repeat: no-repeat
+	@media screen and (max-width: 767px)
+		padding-bottom: 20px
 	&:before
 		content: ''
 		position: absolute
@@ -998,6 +1092,8 @@ header
 		padding: 10px 5px
 		min-height: 220px
 		font-size: 16px
+		@media screen and (max-width: 767px)
+			min-height: 180px
 		&:before
 			content: ''
 			position: absolute
@@ -1182,7 +1278,10 @@ header
 			box-shadow: inset 0 5px 0 $yellow-1
 			.modal-name
 				color: #fff
-				line-height: 175px
+				height: 175px
+				display: flex
+				justify-content: center
+				align-items: center
 				text-align: center
 				text-transform: uppercase
 				font-family: $ff-os-sbold
