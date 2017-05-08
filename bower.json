@@ -22,6 +22,7 @@
     "owl-carousel": "^1.3.2",
     "unitegallery": "^1.7.40",
     "jquery.maskedinput": "^1.4.1",
-    "youtubeBackground": "youtube-background-video#^1.0.5"
+    "youtubeBackground": "youtube-background-video#^1.0.5",
+    "wnumb": "^1.1.0"
   }
 }
