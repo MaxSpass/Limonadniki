@@ -21,7 +21,7 @@
    <header class="container">
       <div class="header-inner row">
          <div class="aligned col-xs-5 col-md-3">
-            <a class="test" href="/"></a>
+            <a class="logo-bg" href="/"></a>
          </div>
          <div class="col-xs-7 col-md-9">
             <div class="header-right">
@@ -120,7 +120,8 @@
                         <li>Сделано в Великобритании</li>
                      </ul>
                   </div>
-                  <div class="item-total"><span class="price">1700</span><button value="Kilner Standart 5L" class="btn-style btn-buy-item">купить</button></div>
+                  <div class="item-total"><span class="price">1580</span>
+                  <button class="btn-style btn-buy-item" data-status="0">купить</button></div>
                </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -136,7 +137,8 @@
                            <li>Сделано в Великобритании</li>
                         </ul>
                      </div>
-                     <div class="item-total"><span class="price">1880</span><button value="Kilner Standart 8L" class="btn-style btn-buy-item">купить</button></div>
+                     <div class="item-total"><span class="price">1880</span>
+                     <button class="btn-style btn-buy-item" data-status="0">купить</button></div>
                </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -152,7 +154,8 @@
                         <li>Сделано в Великобритании</li>
                      </ul>
                   </div>
-                  <div class="item-total"><span class="price">1680</span><button value="Kilner Vintage 5L" class="btn-style btn-buy-item">купить</button></div>
+                  <div class="item-total"><span class="price">1680</span>
+                  <button class="btn-style btn-buy-item" data-status="0">купить</button></div>
                </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -168,7 +171,8 @@
                         <li>Сделано в Великобритании</li>
                      </ul>
                   </div>
-                  <div class="item-total"><span class="price">1880</span><button value="Kilner Square 8L" class="btn-style btn-buy-item">купить</button></div>
+                  <div class="item-total"><span class="price">1880</span>
+                  <button class="btn-style btn-buy-item" data-status="0">купить</button></div>
                </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -184,7 +188,8 @@
                         <li>Сделано в Великобритании</li>
                      </ul>
                   </div>
-                  <div class="item-total"><span class="price">1580</span><button value="Kilner Barrel 5L" class="btn-style btn-buy-item">купить</button></div>
+                  <div class="item-total"><span class="price">1580</span>
+                  <button class="btn-style btn-buy-item" data-status="0">купить</button></div>
                </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -200,7 +205,8 @@
                         <li>Сделано в Великобритании</li>
                      </ul>
                   </div>
-                  <div class="item-total"><span class="price">1680</span><button value="Kilner Cocktail 6L" class="btn-style btn-buy-item">купить</button></div>
+                  <div class="item-total"><span class="price">1680</span>
+                  <button class="btn-style btn-buy-item" data-status="0">купить</button></div>
                </div>
             </div>
          </div>
@@ -461,7 +467,7 @@
    <div class="bottom-column_right">
       <div class="bottom-content">
          <p class="bottom-prev">У нас было 25 лимонов, 1 килограмм сахара, несколько бутылочек цветных сиропов и куча фруктов всей цветов и мастей.</p>
-         <p class="bottom-text">Единственное, что вызывало наше опасение, был лед. Нет ничего более беспомощного, чем тающий лед в жаркий день. Но я знал, что рано или поздно мы справимся и с этим! Если уж взялся делать лимонадную вечеринку, то лучше продумать все до мелочей. Например, в чем будет хранить напиток и как его подавать.</p>
+         <p class="bottom-text">Единственное, что вызывало наше опасение, был лед. Нет ничего более беспомощного, чем тающий лед в жаркий день. Но я знал, что рано или поздно мы справимся и с этим! Если уж взялся делать лимонадную вечеринку, то лучше продумать все до мелочей. Например, в чем будем хранить напиток и как его подавать.</p>
          <i class="arrow3"></i>
       </div>
    </div>
@@ -492,7 +498,7 @@
          <div class="anonimus">Мы сохраним Ваши контакты конфиденциально</div>
       </div>
       <div class="two-steps-box">
-         <div class="close-offer">выбрать другой товар</div>
+         <div class="close-offer">вернуться к выбору</div>
          <div class="open-offer-form">купить</div>
          <div class="total-cost"></div>
       </div>
@@ -510,6 +516,7 @@
             <label class="label-name"><input name="name" type="text" pattern="^[А-Яа-яЁё\s]+$" placeholder="Ваше имя*" required></label>
             <label class="label-phone"><input name="tel" type="tel" placeholder="Ваш телефон*" required></label>
             <label class="label-email"><input name="email" type="email" pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' placeholder="Ваш email*" required></label>
+            <input class="name-modal" type="text" name="namemodal" hidden>
             <button form="form-modal" class="btn-array btn-gift btn-style2" type="submit"></button>
             <div class="anonimus">Мы сохраним Ваши контакты конфиденциально</div>
          </form>
@@ -527,9 +534,10 @@
    <div class="show-video-inner">
       <div class="close-video"></div> 
    </div>
+   <a href="https://tarlini.com.ua/dispenser-forest" class="btn-style2 buy-dispenser" target="_blank">
+      купить подставку под лимонадник
+   </a>
 </div>
-
-
 
       <script src="js/jquery-3.1.1.min.js"></script>
       <script src="libs/youtubeBackground/src/jquery.youtubebackground.js"></script>

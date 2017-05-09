@@ -1,13 +1,13 @@
-    itemArray 		= [],
-    modalOffsetTop 	= $('.modal-box').offset().top,
-    offerOffsetTop 	= $('.offer-box').offset().top,
-    modal 			= $('#modal'),
-    page 			= $('html, body'),
+    itemArray       = [],
+    modalOffsetTop  = $('.modal-box').offset().top,
+    offerOffsetTop  = $('.offer-box').offset().top,
+    modal           = $('#modal'),
+    page            = $('html, body'),
     moneyFormat = wNumb({
         thousand: ' '
     }),
-    YouTube_URL_FrontPage 		= 'GaI6vBOicLw',
-    YouTube_URL_After_Purchase 	= 'GaI6vBOicLw';
+    YouTube_URL_FrontPage       = 'iXAYj0p5LbQ',
+    YouTube_URL_After_Purchase  = 'iXAYj0p5LbQ';
 
 function showModal() {
     $('.shadow').fadeIn(100)
@@ -24,12 +24,6 @@ function hideModal() {
     $('.header-inner').removeClass('open')
     modal.fadeOut()
     $('body').removeClass('none-overflow')
-
-    itemArray = []
-    $('.btn-buy-item').each(function() {
-        $(this).text('Купить').removeClass('added');
-    })
-    $('.counter').hide();
 }
 
 
@@ -68,8 +62,6 @@ $(document).ready(function() {
         }
         $(window).scroll(function() {
             winPos = $(window).scrollTop();
-
-            // if (winPos > navPos && $(window).width() > 767) {
             if (winPos > navPos) {
                 headerBox.addClass('fixed');
                 $('.clone-nav-menu').show();
@@ -145,6 +137,17 @@ $(document).ready(function() {
             hideModal()
         })
     }
+
+    function setChoiseItems() {
+        $('.counter').text(function(){
+            if ($('.btn-buy-item[data-status="1"]').length != '0') {
+                return $('.btn-buy-item[data-status="1"]').length
+            } else {
+                $(this).hide()
+                $('#basket').removeClass('show-basket');
+            }
+        })
+    }
     $('.btn-recipe').click(function() {
         var formRecipe = $("#form-download-recipe");
         if (formRecipe[0].checkValidity()) {
@@ -158,26 +161,33 @@ $(document).ready(function() {
 
     })
 
+/*Доработка*/
+$('.btn-buy-item').each(function(){
+    var thisName = $(this).parent().parent().find($('.h3-item')).text();
+    var thisPrice = $(this).siblings($('.item-total').find($('.price'))).text()
+    $(this).val(thisName)
+    $(this).attr('data-price',thisPrice)
+})
+
     $('.btn-pre-order, .btn-callback').click(function() {
         var thisValue = $(this).val();
         var btnArray = modal.find($('.btn-array')).val(thisValue).text(thisValue);
         showModal();
         modal.find('.modal-name p').text(thisValue);
-
+        $('.name-modal').val(thisValue);
         if ($(this).hasClass('btn-pre-order')) {
             modal.removeClass('callback').addClass('pre-order').show();
             modal.find('form').addClass('show-thx');
         } else if ($(this).hasClass('btn-callback')) {
             modal.removeClass('pre-order show-thx').addClass('callback').show();
         }
-
     })
 
     $('.btn-array').click(function() {
         var modalForm = $('#form-modal');
         if (modalForm[0].checkValidity()) {
             $.post('js/contact.php', modalForm.serializeArray(), function(data) {
-            modalForm.find('input').val("");
+                modalForm.find('input').val("");
                 if ($(this).parent('form').hasClass('show-thx')) {
                     // сюда вывод видео
                     showSuxVideo()
@@ -200,26 +210,19 @@ $(document).ready(function() {
     })
 
     $('.btn-buy-item').click(function() {
-
-        if (!$(this).hasClass('added')) {
-            $('.header-box').addClass('fixed')
-            var offerName = $(this).val(),
-                offerImg = $(this).parent('.item-total').siblings('.item-box').find('img').attr('src'),
-                offerPrice = $(this).siblings('.price').text(),
-                object = {
-                    name: offerName,
-                    src: offerImg,
-                    price: offerPrice
-                }
-            itemArray.push(object)
+        if ($(this).attr('data-status') != 1) {
+            $(this).attr('data-status', 1);
+            $('#basket').addClass('show-basket');
+            $('.header-box').addClass('fixed');
         }
         $(this).addClass('added').text('в корзине')
-        var countNum = $('.btn-buy-item.added').length;
+        var countNum = $('.btn-buy-item[data-status="1"]').length;
         $('.counter').fadeIn(100).text(countNum);
     })
 
 
     $('#basket').click(function(total) {
+        if ($(this).hasClass('show-basket')) {
         showModal()
         $('.offer-item').remove()
         $('.offer-box').show().addClass('show');
@@ -242,21 +245,20 @@ $(document).ready(function() {
 
     }
 
-        for (var i = 0; i < itemArray.length; i++) {
-            var itemName = itemArray[i].name,
-                itemSrc = itemArray[i].src,
-                itemPrice = itemArray[i].price;
-
-            $('<div class="offer-item clearfix">' +
-                '<input hidden name="item" value="'+itemName+'">'+
-                '<input hidden name="price" value="'+itemPrice+'">'+
-                // '<input hidden name="total" value="'+total+'">'+
-                '<div class="offer-img"><span class="remove-item">&times;</span><img src="' + itemSrc + '"></div>' +
-                '<div class="offer-name">' + itemName + '</div><div class="offer-quan"><div class="number"><button class="minus" value="' + itemPrice + '">-</button><input type="text" name="quan" value="1"/><button class="plus" value="' + itemPrice + '">+</button></div></div><div class="offer-price">' + itemPrice + '</div></div>').prependTo($('.offer-inner'))
-        }
-        totalCost()
-   
-
+    $('.btn-buy-item[data-status="1"]').each(function(){
+        var itemName = $(this).val();
+        var itemSrc = $(this).parent().parent().find($('img')).attr('src');
+        var itemPrice = $(this).attr('data-price');
+        $('<div class="offer-item clearfix">' +
+            '<div class="offer-img">'+
+            '<span class="remove-item">&times;</span>'+
+            '<img src="' + itemSrc + '"></div>' +
+            '<div class="offer-name">' + itemName + '</div>'+
+            '<div class="offer-quan"><div class="number">'+
+            '<button class="minus" value="' + itemPrice + '">-</button><input type="text" name="quan" value="1"/><button class="plus" value="' + itemPrice + '">+</button></div></div>'+
+            '<div class="offer-price">' + itemPrice + '</div></div>').prependTo($('.offer-inner'))
+    })
+    totalCost()
 
 
         $('.minus, .plus').click(function() {
@@ -294,62 +296,73 @@ $(document).ready(function() {
                 parent.remove();
                 totalCost()
             }, 600);
+            var itemName = $(this).parent().parent().find($('.offer-name')).text();
+            $('.btn-buy-item[data-status="1"]').each(function(){
+                if ($(this).val() === itemName) {
+                    $(this).attr('data-status', 0).removeClass('added').text('купить');
+                }
+            })
+            setChoiseItems()
         })
 
         $('.close-offer-box, .close-offer').click(function() {
-            // var parent = $(this).parent();
             var parent = $('#offer_box');
             parent.fadeOut(400);
             setTimeout(function() {
                 hideModal()
             }, 600);
-            itemArray = [];
-            // $('#main-menu').hide();
         })
 
         $('.open-offer-form').click(function(){
             parent = $(this).parent().parent().find('.form-modal');
             parent.slideDown('fast');
         })
-
-        $('#offer_go').click(function(){
-            if($("#offer_box")[0].checkValidity()) {
-                var products = [];
-                var html_products = $('.offer-inner .offer-item');
-                
-                html_products.each(function(i,item){
-                    name  = $(item).find('.offer-name').text();
-                    price  = $(item).find('.offer-quan .minus').val();
-                    quantity = $(item).find('.offer-quan input').val();
-
-                    products.push({"name": name, "price": price, "quantity" : quantity});
-
-                });
-
-                var name = $('.offer-inner .form-modal input[name="name"]').val();
-                var tel = $('.offer-inner .form-modal input[name="tel"]').val();
-                var email = $('.offer-inner .form-modal input[name="email"]').val();
-                var total = $('.total-cost').text();
-
-                var jsonData = [];
-                jsonData.push({"products" : products, "form" : {"name" : name, "tel" : tel, "email": email, "total" : total} } );
-                var str_json = "json_string=" + JSON.stringify(jsonData);  
-
-                $.post('js/contact.php', str_json , function(data) {
-                showSuxVideo()
-
-                });
-            }
-            else  {
-                console.log('Не работает!');
-                return false;
-            }
+        } else {
             return false;
-        
-        });
+        }
 
     });
+    $('#offer_go').click(function(){
+        if($("#offer_box")[0].checkValidity()) {
+            var products = [];
+            var html_products = $('.offer-inner .offer-item');
+            
+            html_products.each(function(i,item){
+                name  = $(item).find('.offer-name').text();
+                price  = $(item).find('.offer-quan .minus').val();
+                quantity = $(item).find('.offer-quan input').val();
 
+                products.push({"name": name, "price": price, "quantity" : quantity});
+
+            });
+
+            var name = $('.offer-inner .form-modal input[name="name"]').val();
+            var tel = $('.offer-inner .form-modal input[name="tel"]').val();
+            var email = $('.offer-inner .form-modal input[name="email"]').val();
+            var total = $('.total-cost').text();
+
+            var jsonData = [];
+            jsonData.push({"products" : products, "form" : {"name" : name, "tel" : tel, "email": email, "total" : total} } );
+            var str_json = "json_string=" + JSON.stringify(jsonData);  
+
+            $.post('js/contact.php', str_json , function(data) {
+            showSuxVideo()
+            $('.form-modal').find($('label').children('input').val(""));
+            $('.btn-buy-item').each(function(){
+                $(this).attr('data-status','0').removeClass('added').text('купить');
+            })
+            setChoiseItems()
+            showModal()
+           
+            });
+        }
+        else  {
+            console.log('Не работает!');
+            return false;
+        }
+        return false;
+    
+    });
 
 })
 

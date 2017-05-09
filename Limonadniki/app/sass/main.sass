@@ -1,0 +1,1472 @@
+@import 'mixin/mixins', 'mixin/variables', 'mixin/sprite', 'mixin/normalize'
+@import '../libs/bootstrap-grid/css/bootstrap-grid'
+@import '../css/font'
+@import '../fonts/icons/css/fontello'
+
+.clearfix
+	clear: both
+	&:after
+		content: ''
+		display: table
+
+// [class^=col-]
+// 	box-sizing: border-box !important
+// 	background: red
+
+.row > div
+	box-sizing: border-box !important
+
+a, a:visited, button
+	cursor: pointer
+	outline: none !important
+
+.arrow1
+	@include sprite-arrow1
+
+.arrow2
+	@include sprite-arrow2
+
+.arrow3
+	@include sprite-arrow3
+
+.arrow1,.arrow2,.arrow3
+	position: relative
+	margin: 0  auto
+	@media screen and (max-width: 991px)
+		display: none 
+.logo
+	z-index: 10
+.img
+	max-width: 100%
+	height: auto
+
+body
+	position: relative
+	font-size: 100%
+	box-sizing: border-box
+	background-color: $chosen
+	font-family: $ff-os-regular
+	&.none-overflow
+		overflow: hidden
+
+main
+	&.blur
+		filter: blur(10px)
+
+.shadow
+	width: 100%
+	height: 100%
+	position: absolute
+	top: 0
+	left: 0
+	background: linear-gradient(to right, rgba($green,.90), rgba($yellow-1,.85))
+	z-index: 1
+	display: none
+	&.show-modal
+		display: block
+
+.h2-lim
+	color: $brown
+	margin-top: 30px
+	text-transform: uppercase
+	text-align: center
+	@include fontsize(22)
+	font-family: $ff1
+
+@font-face
+	font-family: 'Karlson'
+	src:url(../fonts/karlson/karlson.ttf)
+
+.btn-style, .btn-style2
+	font-weight: bold
+	display: block
+	text-transform: uppercase
+	text-align: center
+	text-decoration: none
+	border: 2px solid transparent
+	transition: all .35s ease
+	font-size: 16px
+
+.btn-style
+	background: $green
+	color: #fff
+	&:hover
+		border-color: $green !important
+		background: #fff !important
+		color: $green !important
+
+.btn-style2
+	background: $yellow-1
+	border: 2px solid transparent
+	color: $brown
+	&:hover
+		border-color: $brown
+
+.test
+	display: block
+	width: 242px
+	height: 88px
+	background: url('../img/logo.png') center no-repeat
+	background-size: contain
+	z-index: 999
+	@media screen and (max-width:767px)
+		width: calc(242px/2)
+		height: calc(88px/2)
+
+#show_thx_video
+	.ytplayer-container
+		padding-bottom: 56.25%
+		padding-top: 25px
+		height: 0
+		iframe
+			position: absolute
+			left: 0 !important
+			top: 0 !important
+			width: 100% !important
+			height: 100% !important
+			z-index: -1
+
+#top
+	position: relative
+	height: 714px
+	background-size: contain
+	background: transparent
+	// background-image: url("../img/bg.jpg")
+	overflow: hidden
+	@media screen and (max-width:767px)
+		background-size: cover
+		background: url("../img/bg.jpg") center no-repeat
+		// background-image: url("../img/bg2.png")
+	&:before
+		content: ''
+		position: absolute
+		display: block
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		background: rgba(0,0,0,.55)
+		z-index: 0
+	&:after
+		content: ''
+		position: absolute
+		bottom: 15%
+		right: 10%
+		@include sprite-stamp
+	@media screen and (max-width:767px)
+		height: 500px
+		&:after
+			bottom: 5%
+			right: 5%
+	.ytplayer-container
+		// padding-bottom: 56.25%
+		// padding-top: 25px
+		// height: 0
+		iframe
+			position: absolute
+			left: 0 !important
+			top: 0 !important
+			// width: 100% !important
+			// height: 100% !important
+			z-index: -1
+
+header
+	.header-inner
+		margin: 55px auto 30px auto
+		transition: all .15s ease
+		.header-right
+			float: right
+			padding: 15px 0
+			transition: all .15s ease
+
+.header-box
+	&.fixed
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		background: rgba(0,0,0,.8)
+		z-index: 999
+		.header-inner
+			margin: 0 auto
+			// img.logo
+			// 	max-width: 80%
+			.header-right
+				padding: 5px 0
+				font-size: 85%
+
+
+// .header-box, .header-box.fixed
+// 	@media screen and (max-width: 767px)
+// 		.header-inner
+// 			img.logo
+// 				max-width: 250px
+// 				margin: 0 auto
+// 				display: block
+// 			.header-right
+// 				padding: 0
+// 				display: flex
+// 				flex-flow: row wrap
+// 				justify-content: center
+// 				align-items: center
+// 				#main-menu
+// 					width: 100%
+// 					margin: 10px auto
+
+#show_thx_video
+	position: fixed
+	display: none
+	top: 10%
+	left: 0
+	right: 0
+	margin: 0 auto
+	background: rgba(red,.5)
+	width: 100%
+	max-width: 600px
+	z-index: 999
+	.ytplayer-container
+		top: 0 !important
+	.show-video-inner
+		position: relative
+		.close-video
+			position: absolute
+			top: 0
+			right: 5px
+			color: #fff
+			cursor: pointer
+			line-height: 25px
+			text-align: center
+			font-size: 22px
+			vertical-align: middle
+			@include sprite-modal_close
+			z-index: 999
+
+@media (min-width:768px) and (max-width:1199px)
+	.header-right
+		font-size: 90%
+
+
+#main-menu
+	display: inline-block
+	ul
+		li
+			display: inline-block
+			margin-right: 30px
+			a
+				color: #fff
+				text-decoration: none
+				transition: all .2s ease
+				@include fontsize(20)
+				&:hover
+					color: $green
+
+.callback
+	display: inline-block
+	.btn-callback-text
+		box-sizing: border-box
+		background: transparent
+		border-radius: 25px
+		padding: 13px 20px
+		color: $yellow-1
+		border: 2px solid $yellow-1
+		text-transform: uppercase
+		transition: all .35s ease 
+		@include fontsize(15)
+		&:hover
+			background: $yellow-1
+			color: $maroon
+
+@keyframes basket_hover
+	from
+		background: $green
+	to
+		background: $yellow-1
+
+.basket-box
+	display: inline-block
+	margin-left: 30px
+	.basket
+		position: relative
+		display: block
+		cursor: pointer
+		color: #fff
+		padding: 10px
+		width: 53px
+		line-height: 53px
+		height: 53px
+		background: $green
+		border-radius: 50%
+		text-align: center
+		@include fontsize(30)
+		transition: all .35s ease
+		.counter
+			position: absolute
+			display: none
+			animation: basket_hover 1.5s infinite ease
+			color: #000
+			background: $yellow-1
+			border-radius: 50%
+			width: 25px
+			line-height: 25px
+			height: 25px
+			top: -5px
+			right: -5px
+			font-size: 16px
+
+
+@media screen and (max-width: 767px)
+	header .header-inner, .header-box.fixed .header-inner
+		margin: 3px auto
+	.header-right
+		display: flex
+		flex-flow: row wrap
+		justify-content: center
+		align-items: center
+	.header-inner
+		display: flex
+		flex-flow: row wrap
+		align-items: center
+		// .aligned
+		// 	align-self: flex-start
+		&.open
+			.btn-mobile
+				background: $maroon
+				span.spin
+					&:before
+						// background: #fff
+						transform: rotate(45deg)
+						top: 14px
+					&:after
+						// background: #fff
+						transform: rotate(-45deg)
+						bottom: 14px
+	#main-menu
+		position: fixed
+		background: $maroon
+		top: 30%
+		left: 0
+		right: 0
+		padding: 10px 0
+		display: none
+		z-index: 5
+		ul
+			display: flex
+			flex-direction: column
+			justify-content: space-around
+			height: 150px
+			li
+				line-height: 28px
+				display: block
+				text-align: center
+	.basket-box .basket .counter
+		width: 20px
+		line-height: 20px
+		height: 20px
+		top: -7px
+		right: -6px
+		font-size: 13px
+	.basket-box .basket, .icon-phone, .btn-mobile
+		cursor: pointer
+		background: $green
+		border-radius: 50%
+		box-sizing: border-box
+		margin-left: 10px
+		color: #fff
+		line-height: 40px
+		text-align: center
+		width: 40px
+		height: 40px
+		padding: 0
+		font-size: 23px
+	.basket-box
+		margin-left: 0
+	.btn-mobile
+		background: $green
+		position: relative
+		float: left
+		z-index: 3
+		span.spin
+			position: absolute
+			top: 50%
+			left: 0
+			right: 0
+			margin: -15px auto 0 auto
+			width: 30px
+			height: 30px
+			&:before,&:after
+				position: absolute
+				content: ''
+				background: #fff
+				display: block
+				width: 80%
+				height: 2px
+				margin: 0 auto
+				left: 0
+				right: 0
+				transition: all .2s ease
+			&:before
+				top: 7px
+			&:after
+				top: auto
+				bottom: 7px
+	#modal
+		&.pre-order .modal-box
+			max-height: 624px !important
+		&.callback .modal-box
+			max-height: 455px !important
+		.modal-box
+			transform: none
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			// padding: 5px
+			font-size: 64%
+			.form-modal input
+				width: 81%
+			.modal-inner .modal-name
+				line-height: 90px !important
+
+@media screen and (max-width:630px)
+	#main-menu
+		order: 3
+@media screen and (max-width: 360px)
+	.basket-box .basket, .icon-phone, .btn-mobile
+		margin-left: 5px
+
+.owl-carousel .owl-item img
+	width: 100% !important
+	max-width: 300px !important
+	display: block 
+	margin: 0 auto !important
+
+.front-preview
+	position: relative
+	max-width: 600px
+	margin: 0 auto
+	.h1-preview,.h2-preview
+		font-family: $ff1
+		text-align: center
+		color: #fff
+		word-break: normal
+	.h1-preview
+		margin: 3vw auto 1vw
+		line-height: 60px
+		letter-spacing: 1px
+		@include fontsize(50)
+		// @include fontsize(20)
+	.h2-preview
+		@include fontsize(25)
+		margin-bottom: 5vw
+	.btn-see-more
+		max-width: 210px
+		margin: 0 auto
+		border-radius: 50px
+		padding: 15px
+	@media screen and (max-width: 767px)
+		font-size: 60%
+		line-height: 30px
+		
+
+#gallery
+	position: relative
+	background-color: $yellow-0
+	padding: 60px 0 230px 0
+	@media screen and (max-width: 767px)
+		padding-top: 0
+	&:after
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		margin: 0 auto
+		content: ''
+		@include sprite-lemon_lg
+		@media screen and (max-width:991px)
+			@include sprite-lemon_xs
+	@media screen and (max-width: 991px)
+		padding-bottom: 150px
+	.drink-list
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		margin: 30px auto
+		li
+			display: inline-block
+			position: relative
+			color: $brown
+			padding: 0 20px
+			font-size: 17px
+			&:before
+				content: ''
+				background: $green
+				border-radius: 50%
+				display: block
+				width: 6px
+				height: 6px
+				position: absolute
+				float: left
+				left: 0px
+				top: 50%
+				margin-top: -3px
+		@media screen and (max-width: 767px)
+			display: block
+			li
+				font-size: 15px
+
+#range
+	padding: 25px 0 65px 0
+	background-color: $chosen
+	@media screen and (max-width: 767px)
+		padding-bottom: 15px
+	span.line
+		position: relative
+		display: block
+		margin-top: 30px
+		background-color: #e0cfc0
+		height: 1px
+		&.with-arrow
+			&:before, &:after
+				position: absolute
+				top: -10px
+				content: ''
+				margin: 0 auto
+				width: 30px
+				height: 15px
+				border-bottom: 1px solid #e0cfc0
+				background: $chosen
+			&:before
+				left: -22px
+				right: 0
+				transform: rotate(20deg)
+			&:after
+				left: 0
+				right: -22px
+				transform: rotate(-20deg)
+	.items
+		padding-top: 50px
+		.item
+			margin: 0 auto 80px auto
+			display: table
+			@media screen and (max-width: 767px)
+				margin-bottom: 35px
+			&:hover
+				.item-desc
+					opacity: 1
+			.item-box
+				position: relative
+				margin-bottom: 30px
+			.h3-item
+				color: $maroon
+				text-align: center
+				font-size: 26px
+				margin-bottom: 20px
+			.item-desc
+				opacity: 0
+				position: absolute
+				top: 0
+				height: 100%
+				width: 100%
+				background: rgba($green,.8)
+				display: flex
+				flex-flow: column wrap
+				justify-content: center
+				padding-left: 90px
+				box-sizing: border-box
+				transition: all .35s ease
+				li
+					position: relative
+					line-height: 27px
+					color: #fff
+					&:before
+						content: ''
+						width: 6px
+						height: 6px
+						position: absolute
+						top: 50%
+						left: -15px
+						margin-top: -3px
+						border-radius: 50%
+						background: $yellow-1
+			.item-total
+				.price
+					position: relative
+					color: $brown
+					float: left
+					font-weight: bold
+					@include fontsize(38)
+					&:first-letter
+						margin-right: 10px
+					&:after
+						content: '\00a0грн'
+						font-size: 18px
+						vertical-align: top
+				.btn-buy-item
+					float: right
+					width: 150px
+					max-width: 150px
+					box-sizing: border-box
+					padding: 10px 0
+					border-radius: 25px
+					font-size: 15px
+					&.added
+						background: $brown
+						border-color: $brown
+
+.offer-box
+	position: relative
+	background-color: #fff
+	box-sizing: border-box
+	position: fixed
+	top: -100%
+	// left: 25%
+	left: 0
+	right: 0
+	margin: 0 auto
+	height: 80%
+	width: 100%
+	max-width: 70%
+	padding: 0 30px 30px 30px
+	border-radius: 10px
+	overflow-y: scroll
+	z-index: -1
+	opacity: 0
+	transition: all .5s ease
+	.close-offer-box
+		position: absolute
+		display: block
+		cursor: pointer
+		top: 5px
+		right: 5px
+		background: lighten(maroon,15%)
+		width: 30px
+		height: 30px
+		line-height: 30px
+		color: #fff
+		border-radius: 50px
+		text-align: center
+		font-size: 30px
+	&.show
+		top: 10%
+		z-index: 999
+		opacity: 1
+		.offer-inner
+			z-index: 4
+			.two-steps-box
+				display: flex
+				flex-flow: row wrap
+				justify-content: center
+				align-items: center
+				margin-top: 30px
+				font-family: $ff-os-sbold
+				.close-offer,.open-offer-form
+					box-sizing: border-box
+					cursor: pointer
+					text-transform: uppercase
+					padding: 15px
+					margin: 5px 10px
+					flex-basis: 220px
+					text-align: center
+					border-radius: 50px
+					@include fontsize(15)
+				.close-offer
+					background: #e4e4e4
+				.open-offer-form
+					background: $yellow-1
+				.total-cost
+					// align-self: flex-end
+					margin: 5px 10px
+					color: $green
+					@include fontsize(23)
+					&:before
+						content: 'ИТОГО:\00a0'
+						color: #000
+						margin-right: 30px
+						font-size: 18px
+					&:after
+						content: '\00a0ГРН.'
+			.try-to-write
+				color: $green
+				text-align: center
+				line-height: 25px
+				font-family: $ff-os-bold
+				@include fontsize(25)
+			.form-modal
+				display: none
+				padding: 0 !important
+				margin: 15px auto !important
+			.btn-offer-go
+				background: $green
+				color: #fff
+				margin: 20px auto 10px
+				padding: 15px 0
+				width: 100%
+				// max-width: 300px
+				border-radius: 50px
+	@media screen and (max-width: 767px)
+		width: 100%
+		max-width: 98%
+		left: 0
+		right: 0
+		top: 10px
+	.offer-inner
+		// z-index: 4
+		.offer-item
+			display: flex
+			flex-flow: row wrap
+			justify-content: flex-start
+			padding: 20px 0 10px 0
+			border-bottom: 1px dashed $grey
+			align-items: center
+			@include fontsize(18)
+			.offer-img
+				position: relative
+				width: 100%
+				max-width: 100px
+				float: left
+				img
+					max-width: 100px
+					width: 100%
+					height: auto
+				.remove-item
+					position: absolute
+					cursor: pointer
+					top: -10px
+					right: -10px
+					background: lighten(maroon,15%)
+					width: 20px
+					height: 20px
+					line-height: 20px
+					color: #fff
+					border-radius: 50px
+					text-align: center
+			.offer-name
+				width: 38%
+				float: left
+				font-weight: bold
+				box-sizing: border-box
+				padding-left: 5%
+			.offer-quan, .offer-price
+				width: 19%
+				float: left
+				text-align: right
+			.offer-price
+				&:first-letter
+					margin-right: 5px
+				&:after
+					content: '\00a0грн.'
+			.number
+				button.minus, button.plus, input
+					display: inline-block
+					width: 33%
+					text-align: center
+				button.minus, button.plus
+					cursor: pointer
+					color: #fff
+					width: 25px
+					height: 25px
+					font-size: 19px
+					line-height: 24px
+					box-sizing: border-box
+					background: $green
+					border-radius: 50%
+
+	.offer-table
+		margin: 20px auto 0
+		padding: 15px 0
+		border-top: 1px solid $grey
+		border-bottom: 1px dashed $grey
+		color: $brown
+		@include fontsize(19)
+		.offer-td-name
+			width: 56%
+			float: left
+		.offer-td-quan, .offer-td-price
+			width: 22%
+			float: left
+			text-align: center
+		@media screen and (max-width: 550px)
+			display: none
+
+#recipe
+	background: $green
+	padding: 60px 0
+	.download-recipe
+		display: none
+	.h2-lim
+		color: #fff
+		margin: 25px auto
+	.download-text
+		text-align: center
+		color: #fff
+		@include fontsize(20)
+	.form-download-recipe
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		margin: 40px auto
+		input, .btn-recipe
+			width: 24%
+			line-height: 38px
+			border-radius: 50px
+		input
+			padding-left: 20px
+			box-sizing: border-box
+		.btn-recipe
+			background: $yellow-1
+			border: 2px solid transparent
+			color: $maroon
+			font-weight: bold
+			&:hover
+				border-color: $maroon
+		@media screen and (max-width: 650px)
+			flex-flow: column wrap
+			input, .btn-recipe
+				width: 100%
+				margin: 5px auto
+	@media screen and (max-width: 991px)
+		padding: 25px 0 0
+		.form-download-recipe
+			margin: 20px auto
+
+	.recipe-book
+		position: relative
+		img
+			position: absolute
+			top: -130px
+			left: 0
+
+@media screen and (max-width: 767px)
+	.offer-box
+		padding: 10px
+	.offer-box .offer-inner .offer-item .offer-quan
+		width: 26%
+	.offer-box .offer-inner .offer-item .offer-price
+		width: 100%
+		text-align: center
+
+@media screen and (min-width: 1199px)
+	.offer-box .offer-inner .offer-item .offer-quan, .offer-box .offer-inner .offer-item .offer-price
+		width: 23%
+
+#advantage
+	position: relative
+	padding: 175px 0 100px 0
+	background: $yellow-0
+	background-image: url("../img/bg_advantage.png")
+	background-position: 52% 125%
+	background-repeat: no-repeat
+	@media screen and (max-width: 767px)
+		padding-bottom: 20px
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		margin: 0 auto
+		@include sprite-lime_lg
+		@media screen and (max-width:991px)
+			@include sprite-lime_xs
+	.promo-box
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		margin-top: 55px
+		.promo-item
+			max-width: 335px
+			height: 260px
+			margin: 15px 0 10px
+			padding-top: 15px
+			.promo-item-box-img
+				display: flex
+				justify-content: center
+				align-items: center
+				border-radius: 50%
+				background-color: $yellow-1
+				width: 100px
+				height: 100px
+				margin: 40px auto 20px
+			.promo-ico_1
+				@include sprite-adv_ico1
+			.promo-ico_2
+				@include sprite-adv_ico2
+			.promo-ico_3
+				@include sprite-adv_ico3
+			.promo-ico_4
+				@include sprite-adv_ico4
+			.promo-desc
+				color: $brown
+				line-height: 28px
+				font-size: 18px
+				text-align: center
+	@media (min-width: 992px) and (max-width: 1199px)
+		background-size: 30%
+		background-position: center 105%
+		padding-bottom: 0
+	@media screen and (max-width: 991px)
+		padding-top: 60px
+		background-image: none
+		.promo-box 
+			margin-top: 0
+			.promo-item 
+				height: auto
+				padding-top: 0
+				.promo-desc
+					font-size: 16px
+	@media screen and (max-width: 767px)
+		.promo-column-left, .promo-column-right
+			margin: 0 auto
+			.promo-item
+				width: 100%
+
+.discount-box
+	position: relative
+	background-image: url("../img/bg_offer.jpg")
+	background-size: cover
+	background-repeat: no-repeat
+	padding: 40px 0 30px
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		width: 100%
+		height: 100%
+		background: rgba(#ffff6e,.8)
+	.h2-lim
+		position: relative
+		margin-bottom: 35px
+		margin-top: 0
+		@include fontsize(26)
+	.percent-20
+		margin-bottom: 20px
+	.btn-discount
+		position: relative
+		margin: 0 auto
+		padding: 15px 0
+		width: 100%
+		max-width: 300px
+		border-radius: 50px
+		margin-bottom: -55px
+		z-index: 2
+	@media screen and (max-width: 767px)
+		font-size: 80%
+
+.discount-inner
+	position: relative
+	display: flex
+	flex-flow: row wrap
+	justify-content: space-around
+	align-items: center
+	.percent-20
+		text-align: center
+		font-family: $ff1
+		.perc-value,.perc-text
+			color: $brown
+			display: block
+			line-height: 100px
+		.perc-value
+			@include fontsize(120)
+		.perc-text
+			@include fontsize(60)
+	.arrow-left
+		@include sprite-offer_ico1
+	.arrow-right
+		@include sprite-offer_ico2
+	@media screen and (max-width: 767px)
+		justify-content: center
+		.arrow-left, .arrow-right
+			display: none
+
+#work
+	position: relative
+	padding: 65px 0 215px
+	background: $yellow-0
+	&:after
+		content: ''
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 0
+		margin: 0 auto
+		@include sprite-grape_lg
+	.work-inner
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		margin: 55px auto 20px
+		.work-item
+			text-align: center
+			width: 20%
+			.work-item-img-box
+				display: flex
+				justify-content: center
+				align-items: center
+				width: 110px
+				height: 110px
+				border-radius: 50%
+				background: $green
+				margin: 0 auto 40px
+				.work-ico_1
+					@include sprite-work_ico1
+				.work-ico_2
+					@include sprite-work_ico2
+				.work-ico_3
+					@include sprite-work_ico3
+				.work-ico_4
+					@include sprite-work_ico4
+				.work-ico_5
+					@include sprite-work_ico5
+			.work-desc
+				color: $brown
+				font-size: 19px
+		@media screen and (max-width:767px)
+			.work-item
+				width: 50%
+				margin-bottom: 40px
+				.work-item-img-box
+					margin-bottom: 20px
+		@media screen and (max-width: 400px)
+			.work-item
+				width: 100%
+	@media screen and (max-width: 991px)
+		padding-bottom: 100px
+		&:after
+			@include sprite-grape_xs
+
+#gifts
+	display: flex
+	flex-direction: row
+	justify-content: center
+	align-items: stretch
+	.gift-column_left, .gift-column_right
+		width: 50%
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center
+	.gift-column_left
+		background-image: url("../img/bg_gift1.jpg")
+	.gift-column_right
+		position: relative
+		background-image: url("../img/bg_gift2.jpg")
+		padding: 140px 0 140px
+		&:after
+			content: ''
+			position: absolute
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			right: 0
+			background: rgba(#81b647,.8)
+		.gift-content
+			max-width: 600px
+			padding: 0 70px
+			box-sizing: border-box
+			text-align: center
+			i,.gift-text,.gift-desc
+				color: #fff
+				z-index: 2
+				position: relative
+			.gift-text
+				margin-top: 30px
+				text-transform: uppercase
+				line-height: 58px
+				@include fontsize(50)
+				font-family: $ff1
+			.gift-desc
+				margin-top: 50px
+				font-size: 21px
+				line-height: 26px
+				b
+					margin: 35px 0
+					display: block
+	@media screen and (max-width: 991px)
+		.gift-column_right
+			padding: 60px 0 60px
+			font-size: 80%
+	@media screen and (max-width: 767px)
+		.gift-column_right
+			width: 100%
+			.gift-content
+				max-width: 100%
+				padding: 0 20px
+
+.btn-gift
+	width: 100%
+	max-width: 250px
+	margin: 0 auto
+	padding: 15px 0
+	position: relative
+	z-index: 2
+	border-radius: 50px
+	font-weight: bold
+
+#ukraine
+	position: relative
+	background-color: rgba(#ffffcb,.95)
+	background-image: url("../img/bg_choise.png")
+	background-repeat: no-repeat
+	background-position: center
+	background-attachment: contain
+	padding: 60px 0 10px
+	min-height: 420px
+	.choisen-box
+		.coisen-item
+			display: flex
+			align-items: center
+			height: 200px
+			&:before
+				content: ''
+				margin: auto
+		.coisen-item.nemiroff
+			&:before
+				@include sprite-chosen_ico1
+		.coisen-item.radisson
+			&:before
+				@include sprite-chosen_ico2
+		.coisen-item.oneplusone
+			&:before
+				@include sprite-chosen_ico3
+		.coisen-item.mercato
+			&:before
+				@include sprite-chosen_ico4
+		.coisen-item.gulliver
+			&:before
+				@include sprite-chosen_ico5
+	.ukraine-tezis
+		text-align: center
+		margin: 30px auto
+		color: $brown
+		font-weight: bold
+		font-size: 18px
+	@media screen and (max-width: 991px)
+		min-height: 100%
+		padding: 35px 0
+		.choisen-box
+			.coisen-item
+				height: 140px
+
+
+
+#feedback
+	background-color: $chosen
+	padding: 60px 0
+
+.feedbk-carousel-box
+	margin-top: 40px
+
+.feedbk-inner
+	padding: 0 15px
+
+.feedbk-item
+	box-sizing: border-box
+	color: $brown
+	text-align: center
+	.feedbk-img-box
+		margin-bottom: 30px
+		img
+			max-width: 240px !important
+	.feedbk-name
+		text-transform: uppercase
+		font-weight: bold
+		font-size: 21px
+		margin-bottom: 20px
+	.feedbk-desc
+		position: relative
+		padding: 10px 5px
+		min-height: 220px
+		font-size: 16px
+		@media screen and (max-width: 767px)
+			min-height: 180px
+		&:before
+			content: ''
+			position: absolute
+			bottom: 0
+			left: 0
+			right: 0
+			margin: 0 auto
+			@include sprite-dd
+
+.footer-box-menu
+	background: $yellow-0
+	padding: 50px 0 40px
+	.footer-inner-menu
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		align-items: center
+		@media screen and (max-width:991px)
+			flex-direction: column
+		.col-right
+			.menu-footer,.btn-callback-text-footer
+				display: inline-block
+			.menu-footer
+				li
+					display: inline-block
+					margin-right: 40px
+					a
+						color: $maroon
+						text-decoration: none
+						font-size: 18px
+						font-family: $ff-os-sbold
+						&:hover
+							opacity: .7
+.btn-callback-text-footer
+	box-sizing: border-box
+	background: transparent
+	border-radius: 25px
+	padding: 13px 20px
+	color: $maroon
+	border: 2px solid $maroon
+	text-transform: uppercase
+	transition: all .35s ease 
+	@include fontsize(15)
+	&:hover
+		border-color: transparent
+		background: $maroon
+		color: $yellow-0
+
+.map
+	position: relative
+	.contact-info
+		color: #fff
+		padding: 10px
+		position: absolute
+		box-sizing: border-box
+		text-align: center
+		top: 0
+		left: 19%
+		width: 100%
+		height: 430px
+		max-width: 365px
+		background: $green
+		z-index: 3
+		@media (min-width: 767px) and (max-width: 991px)
+			left: 5%
+		@media screen and (max-width: 767px)
+			position: relative
+			height: auto
+			margin: 0 auto
+			max-width: 100%
+			left: 0
+			padding-bottom: 20px
+		.p-contact
+			padding: 35px 0 25px
+			font-size: 30px
+			border-bottom: 1px solid #fff
+			display: inline-block
+			font-family: $ff-os-bold
+		.phones
+			margin: 30px 0
+			p
+				font-size: 20px
+				line-height: 44px
+				a
+					color: #fff
+					text-decoration: none
+					&:hover
+						text-decoration: underline
+		.social
+			li
+				display: inline-block
+				margin: 0 15px
+				a
+					text-decoration: none
+					&:before
+						color: #fff
+						border-radius: 50%
+						border: 1px solid #fff
+						width: 35px
+						line-height: 35px
+						height: 35px
+						font-size: 20px
+						transition: all .2s ease-in
+					&:hover:before
+						border-color: transparent
+						background: #fff
+						color: $green
+
+.bottom
+	display: flex
+	flex-direction: row
+	justify-content: center
+	align-items: stretch
+	background: $maroon
+	.bottom-column_left, .bottom-column_right
+		width: 50%
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center
+	.bottom-column_left
+		background-image: url("../img/bg_footer1.png")
+	.bottom-column_right
+		position: relative
+		padding: 20px
+		.bottom-content
+			max-width: 700px
+			padding: 15px 30px
+			box-sizing: border-box
+			text-align: center
+			i,.bottom-text,.bottom-desc
+				color: #fff
+				z-index: 2
+				position: relative
+			.bottom-prev
+				color: $yellow-1
+				text-transform: uppercase
+				font-family: $ff-os-bold
+				font-size: 20px
+			.bottom-text
+				margin-top: 30px
+				line-height: 27px
+				font-size: 20px
+				font-family: $ff-os-light
+				margin-bottom: 30px
+	@media screen and (max-width: 991px)
+		.bottom-column_right
+			width: 100%
+			.bottom-content
+				max-width: 100%
+				padding: 0 20px
+
+#modal
+	z-index: 1000
+	display: none
+	&.callback .modal-box
+		max-height: 540px
+		.bottom-modal
+			display: none
+	&.pre-order .modal-box
+		max-height: 750px
+	.modal-box
+		background-color: $yellow-0
+		box-sizing: border-box
+		position: fixed
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		height: 100%
+		max-height: 600px
+		width: 100%
+		max-width: 650px
+		margin: 0 auto
+		overflow: auto
+		z-index: 999
+		.modal-content
+			background: #fff
+		.modal-inner
+			position: relative
+			background-image: url("../img/bg_modal.jpg")
+			background-size: cover
+			background-repeat: no-repeat
+			box-shadow: inset 0 5px 0 $yellow-1
+			.modal-name
+				color: #fff
+				height: 175px
+				display: flex
+				justify-content: center
+				align-items: center
+				text-align: center
+				text-transform: uppercase
+				font-family: $ff-os-sbold
+				@include fontsize(35)
+			.close-modal
+				position: absolute
+				top: 15px
+				right: 10px
+				color: #fff
+				cursor: pointer
+				line-height: 25px
+				text-align: center
+				font-size: 22px
+				vertical-align: middle
+				@include sprite-modal_close
+.form-modal
+	padding: 30px 0
+	max-width: 370px
+	margin: 0 auto
+	label
+		background-color: #e9e4d1
+		width: 100%
+		margin: 10px auto
+		position: relative
+		display: block
+		z-index: 999
+		&:before
+			position: absolute
+			top: 11px
+			left: 19px
+			content: ''
+			display: block
+	label.label-name:before
+		@include sprite-modal_name
+	label.label-phone:before
+		@include sprite-modal_phone
+	label.label-email:before
+		@include sprite-modal_email
+	input
+		background: #fff
+		border: 1px solid #b0b0b0
+		border-left: none
+		box-sizing: border-box
+		color: #6F6F6F
+		width: 84%
+		line-height: 43px
+		height: 43px
+		margin-left: 60px
+		padding-left: 20px
+		font-size: 16px
+		z-index: 1000
+	button
+		max-width: 100%
+		margin: 30px auto
+		font-size: 16px
+.anonimus
+	color: #6F6F6F
+	line-height: 25px
+	vertical-align: middle
+	font-size: 14px
+	font-style: italic
+	// font-family:  $ff-os-regular
+	&:before
+		content: ''
+		float: left
+		margin: 0 10px
+		@include sprite-modal_lock
+		
+.bottom-modal
+	background: $yellow-0
+	box-sizing: border-box
+	display: block
+	padding: 20px
+	text-align: center
+	.red
+		color: $red
+		margin: 20px auto
+		text-transform: uppercase
+		font-family: $ff-os-sbold
+		font-size: 19px
+	p
+		max-width: 450px
+		margin: 0 auto
+		color: $brown
+		font-family: $ff-os-sbold
+		font-size: 16px
+		.red-bg
+			color: #fff
+			background: $red
+			border-radius: 5px
+			display: inline-block
+			padding: 1px 5px
+					
+		// @media screen and (max-width: 660px)
+		// 	width: 100%
+		// 	top: 10px
+		// 	left: 0
+		// 	transform: none
+
+// .modal-box
+// 	top: 10px !important
